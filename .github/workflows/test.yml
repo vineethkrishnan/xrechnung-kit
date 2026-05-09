@@ -71,9 +71,14 @@ jobs:
           coverage: none
           tools: composer:v2
 
+      # Resolve fresh against PHP 8.3 so PHP-8.4-only transitive deps (e.g.
+      # the symfony/* v8 components phpbench pulls in on 8.4+ machines) do
+      # not block the install. The lockfile is for local dev; CI runs always
+      # update.
       - name: Install dependencies
         uses: ramsey/composer-install@v3
         with:
+          dependency-versions: highest
           composer-options: '--prefer-dist'
 
       - name: PHPStan
@@ -119,6 +124,7 @@ jobs:
       - name: Install dependencies
         uses: ramsey/composer-install@v3
         with:
+          dependency-versions: highest
           composer-options: '--prefer-dist'
 
       - name: Cache KoSIT bundle binaries
