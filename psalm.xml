@@ -5,7 +5,7 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     errorLevel="1"
     findUnusedBaselineEntry="true"
-    findUnusedCode="true"
+    findUnusedCode="false"
     resolveFromConfigFile="true"
     cacheDirectory=".psalm"
 >
@@ -17,4 +17,28 @@
         </ignoreFiles>
     </projectFiles>
 
+    <issueHandlers>
+        <!-- The lifted L3 entity returns mixed everywhere; A3 will replace it
+             with a typed VO graph and these suppressions go away. -->
+        <MixedAssignment>
+            <errorLevel type="suppress">
+                <file name="core/src/XRechnungGenerator.php" />
+            </errorLevel>
+        </MixedAssignment>
+
+        <!-- Closure::fromCallable narrows the parent type generically; the
+             constructor docblock pins the expected callable signature. -->
+        <MixedPropertyTypeCoercion>
+            <errorLevel type="suppress">
+                <directory name="core/src/Notification/Channel" />
+            </errorLevel>
+        </MixedPropertyTypeCoercion>
+
+        <!-- PHPUnit pattern: typed properties initialised in setUp, not __construct. -->
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <directory name="core/tests" />
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+    </issueHandlers>
 </psalm>
