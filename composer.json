@@ -20,6 +20,11 @@
     "repositories": [
         { "type": "path", "url": "core", "options": { "symlink": true } }
     ],
+    "autoload-dev": {
+        "psr-4": {
+            "XrechnungKit\\Tests\\": "core/tests/"
+        }
+    },
     "scripts": {
         "test": "phpunit",
         "stan": "phpstan analyse --memory-limit=1G",
