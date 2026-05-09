@@ -16,7 +16,7 @@ jobs:
       REPO_SLUG: ${{ github.repository }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.release.tag_name }}
 
