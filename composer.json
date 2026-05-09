@@ -21,9 +21,30 @@
         "vineethkrishnan/xrechnung-kit-kosit-bundle": "@dev"
     },
     "repositories": [
-        { "type": "path", "url": "core", "options": { "symlink": true } },
-        { "type": "path", "url": "cli", "options": { "symlink": true } },
-        { "type": "path", "url": "kosit-bundle", "options": { "symlink": true } }
+        {
+            "type": "path",
+            "url": "core",
+            "options": {
+                "symlink": true,
+                "versions": { "vineethkrishnan/xrechnung-kit-core": "0.1.0" }
+            }
+        },
+        {
+            "type": "path",
+            "url": "cli",
+            "options": {
+                "symlink": true,
+                "versions": { "vineethkrishnan/xrechnung-kit-cli": "0.1.0" }
+            }
+        },
+        {
+            "type": "path",
+            "url": "kosit-bundle",
+            "options": {
+                "symlink": true,
+                "versions": { "vineethkrishnan/xrechnung-kit-kosit-bundle": "0.1.0" }
+            }
+        }
     ],
     "autoload-dev": {
         "psr-4": {
