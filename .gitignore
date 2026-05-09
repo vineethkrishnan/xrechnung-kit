@@ -1,0 +1,56 @@
+# Local-only design documents and notes
+/_knowledgebase/
+
+# Composer
+/vendor/
+**/vendor/
+composer.lock
+!/composer.lock
+composer.phar
+
+# Node / commitlint
+/node_modules/
+package-lock.json
+yarn.lock
+
+# PHP tooling
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+.phpstan.cache/
+.psalm/
+phpstan-baseline.neon
+psalm-baseline.xml
+
+# Coverage
+/coverage/
+*.coverage
+.phpunit.coverage.xml
+clover.xml
+
+# KoSIT runtime cache
+.kosit-cache/
+*.report.html
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Build
+/build/
+/dist/
+*.tar
+*.tar.gz
+*.zip
+
+# Env
+.env
+.env.local
+.env.*.local
