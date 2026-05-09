@@ -1,0 +1,39 @@
+{
+    "name": "vineethkrishnan/xrechnung-kit-kosit-bundle",
+    "description": "KoSIT Schematron validator JAR and pinned scenarios as a composer-managed bundle for xrechnung-kit. Opt-in dependency.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["xrechnung", "en16931", "kosit", "schematron", "validator"],
+    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "support": {
+        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/kosit-validation.md"
+    },
+    "authors": [
+        { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "XrechnungKit\\KositBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "kosit": {
+            "validator-version": "1.5.0",
+            "scenarios-version": "2.0.1",
+            "scenarios-source": "https://github.com/itplr-kosit/validator-configuration-xrechnung/releases"
+        },
+        "branch-alias": {
+            "dev-main": "0.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
