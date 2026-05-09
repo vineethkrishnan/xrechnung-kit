@@ -1,0 +1,25 @@
+name: commitlint
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  commitlint:
+    name: lint commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Lint PR commits
+        uses: wagoid/commitlint-github-action@v6
+        with:
+          configFile: commitlint.config.js
+          failOnWarnings: false
+          helpURL: https://github.com/vineethkrishnan/xrechnung-kit/blob/main/CONTRIBUTING.md#commit-convention

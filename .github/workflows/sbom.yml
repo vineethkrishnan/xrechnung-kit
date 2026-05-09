@@ -1,0 +1,55 @@
+name: sbom
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  generate-sbom:
+    name: generate and attach CycloneDX SBOM
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name }}
+      REPO_SLUG: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: dom, libxml, mbstring
+          coverage: none
+          tools: composer:v2
+
+      - name: Install project dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          composer-options: '--prefer-dist --no-dev'
+
+      - name: Install CycloneDX composer plugin
+        run: composer global require --no-progress cyclonedx/cyclonedx-php-composer
+
+      - name: Allow CycloneDX plugin globally
+        run: composer global config allow-plugins.cyclonedx/cyclonedx-php-composer true
+
+      - name: Generate CycloneDX SBOM
+        run: |
+          composer CycloneDX:make-sbom \
+            --output-format=JSON \
+            --output-file=sbom.cdx.json \
+            --spec-version=1.5 \
+            --omit=dev
+
+      - name: Attach SBOM to release
+        run: |
+          gh release upload "$RELEASE_TAG" \
+            sbom.cdx.json \
+            --repo "$REPO_SLUG" \
+            --clobber
