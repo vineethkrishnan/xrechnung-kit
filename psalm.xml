@@ -13,16 +13,8 @@
         <directory name="core/src" />
         <directory name="core/tests" />
         <ignoreFiles>
-            <directory name="core/tests/Fixtures" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
 
-    <issueHandlers>
-        <UnusedClass>
-            <errorLevel type="suppress">
-                <directory name="core/src/Internal" />
-            </errorLevel>
-        </UnusedClass>
-    </issueHandlers>
 </psalm>
