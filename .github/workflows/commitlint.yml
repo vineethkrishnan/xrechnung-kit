@@ -20,6 +20,6 @@ jobs:
       - name: Lint PR commits
         uses: wagoid/commitlint-github-action@v6
         with:
-          configFile: commitlint.config.js
+          configFile: commitlint.config.mjs
           failOnWarnings: false
           helpURL: https://github.com/vineethkrishnan/xrechnung-kit/blob/main/CONTRIBUTING.md#commit-convention

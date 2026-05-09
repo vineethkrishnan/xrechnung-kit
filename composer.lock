@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c464581e22bd486b4f22aad3d9ad50bd",
+    "content-hash": "7f801a22ac6fe451423346656d03617e",
     "packages": [],
     "packages-dev": [
         {
@@ -7866,11 +7866,11 @@
         },
         {
             "name": "vineethkrishnan/xrechnung-kit-cli",
-            "version": "dev-main",
+            "version": "0.1.0",
             "dist": {
                 "type": "path",
                 "url": "cli",
-                "reference": "b54ff6f805dcb1c1f3eaf1f6b1f3c61861dcafbc"
+                "reference": "7313d71b7f2bf55558cbd761891dc1dc61348931"
             },
             "require": {
                 "php": "^8.1",
@@ -7931,11 +7931,11 @@
         },
         {
             "name": "vineethkrishnan/xrechnung-kit-core",
-            "version": "dev-main",
+            "version": "0.1.0",
             "dist": {
                 "type": "path",
                 "url": "core",
-                "reference": "7b4f4bf20114ea82e39ef2f37fe4ee60cc18c882"
+                "reference": "e1cbf207e5d9d7988fc94885a9845d6978c1eff2"
             },
             "require": {
                 "ext-dom": "*",
@@ -8004,11 +8004,11 @@
         },
         {
             "name": "vineethkrishnan/xrechnung-kit-kosit-bundle",
-            "version": "dev-main",
+            "version": "0.1.0",
             "dist": {
                 "type": "path",
                 "url": "kosit-bundle",
-                "reference": "241e39fad9be6bdbded99ff42197a8510d527365"
+                "reference": "3b8aac93464589c54c80a5b0a9b1124979d616b1"
             },
             "require": {
                 "php": "^8.1"
