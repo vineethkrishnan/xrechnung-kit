@@ -1,0 +1,13 @@
+parameters:
+    level: max
+    paths:
+        - core/src
+        - core/tests
+    excludePaths:
+        analyseAndScan:
+            - core/tests/Fixtures/*
+    treatPhpDocTypesAsCertain: false
+    checkMissingIterableValueType: true
+    checkGenericClassInNonGenericObjectType: true
+    reportUnmatchedIgnoredErrors: true
+    tmpDir: .phpstan.cache

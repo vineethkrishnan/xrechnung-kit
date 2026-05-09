@@ -1,0 +1,44 @@
+{
+    "name": "vineethkrishnan/xrechnung-kit-cakephp",
+    "description": "CakePHP adapter for xrechnung-kit. Wires the framework-agnostic core into Cake's logging stack and provides a CakeLogger PSR-3 binding.",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "keywords": ["xrechnung", "en16931", "e-invoicing", "cakephp", "cakephp-plugin", "germany"],
+    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "support": {
+        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/frameworks/cakephp.md"
+    },
+    "authors": [
+        { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": "^8.1",
+        "cakephp/cakephp": "^4.5 || ^5.0",
+        "vineethkrishnan/xrechnung-kit-core": "^0.1 || ^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "XrechnungKit\\CakePhp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "XrechnungKit\\CakePhp\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.x-dev"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
