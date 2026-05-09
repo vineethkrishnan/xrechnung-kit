@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41437f47ffedbaa976f695009f63a905",
+    "content-hash": "c464581e22bd486b4f22aad3d9ad50bd",
     "packages": [],
     "packages-dev": [
         {
@@ -465,16 +465,16 @@
         },
         {
             "name": "amphp/pipeline",
-            "version": "v1.2.3",
+            "version": "v1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/pipeline.git",
-                "reference": "7b52598c2e9105ebcddf247fc523161581930367"
+                "reference": "a044733e080940d1483f56caff0c412ad6982776"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/pipeline/zipball/7b52598c2e9105ebcddf247fc523161581930367",
-                "reference": "7b52598c2e9105ebcddf247fc523161581930367",
+                "url": "https://api.github.com/repos/amphp/pipeline/zipball/a044733e080940d1483f56caff0c412ad6982776",
+                "reference": "a044733e080940d1483f56caff0c412ad6982776",
                 "shasum": ""
             },
             "require": {
@@ -486,7 +486,7 @@
                 "amphp/php-cs-fixer-config": "^2",
                 "amphp/phpunit-util": "^3",
                 "phpunit/phpunit": "^9",
-                "psalm/phar": "^5.18"
+                "psalm/phar": "6.16.1"
             },
             "type": "library",
             "autoload": {
@@ -520,7 +520,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amphp/pipeline/issues",
-                "source": "https://github.com/amphp/pipeline/tree/v1.2.3"
+                "source": "https://github.com/amphp/pipeline/tree/v1.2.4"
             },
             "funding": [
                 {
@@ -528,7 +528,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-16T16:33:53+00:00"
+            "time": "2026-05-06T05:37:57+00:00"
         },
         {
             "name": "amphp/process",
@@ -7865,12 +7865,77 @@
             "time": "2026-03-19T10:56:09+00:00"
         },
         {
+            "name": "vineethkrishnan/xrechnung-kit-cli",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "cli",
+                "reference": "b54ff6f805dcb1c1f3eaf1f6b1f3c61861dcafbc"
+            },
+            "require": {
+                "php": "^8.1",
+                "vineethkrishnan/xrechnung-kit-core": "^0.1 || ^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0"
+            },
+            "suggest": {
+                "vineethkrishnan/xrechnung-kit-kosit-bundle": "Required for the validate-kosit binary; ships the validator JAR and pinned scenarios."
+            },
+            "bin": [
+                "bin/validate-kosit"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "XrechnungKit\\Cli\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "XrechnungKit\\Cli\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vineeth N K",
+                    "email": "me@vineethnk.in",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Command-line tools for xrechnung-kit. Ships validate-kosit which runs KoSIT Schematron validation against XRechnung XML files via the bundled validator.",
+            "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+            "keywords": [
+                "cli",
+                "en16931",
+                "kosit",
+                "xrechnung"
+            ],
+            "support": {
+                "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+                "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+                "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/kosit-validation.md"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "vineethkrishnan/xrechnung-kit-core",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "core",
-                "reference": "88bf59c0a0b3389d43a3e8dd973e9f7563a0d3ef"
+                "reference": "7b4f4bf20114ea82e39ef2f37fe4ee60cc18c882"
             },
             "require": {
                 "ext-dom": "*",
@@ -7892,7 +7957,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.x-dev"
+                    "dev-main": "0.1.x-dev"
                 }
             },
             "autoload": {
@@ -7931,6 +7996,62 @@
                 "source": "https://github.com/vineethkrishnan/xrechnung-kit",
                 "docs": "https://github.com/vineethkrishnan/xrechnung-kit/tree/main/docs",
                 "security": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/SECURITY.md"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "vineethkrishnan/xrechnung-kit-kosit-bundle",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "kosit-bundle",
+                "reference": "241e39fad9be6bdbded99ff42197a8510d527365"
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "kosit": {
+                    "validator-version": "1.5.0",
+                    "scenarios-version": "2.0.1",
+                    "scenarios-source": "https://github.com/itplr-kosit/validator-configuration-xrechnung/releases"
+                },
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "XrechnungKit\\KositBundle\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vineeth N K",
+                    "email": "me@vineethnk.in",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "KoSIT Schematron validator JAR and pinned scenarios as a composer-managed bundle for xrechnung-kit. Opt-in dependency.",
+            "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+            "keywords": [
+                "en16931",
+                "kosit",
+                "schematron",
+                "validator",
+                "xrechnung"
+            ],
+            "support": {
+                "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+                "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+                "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/kosit-validation.md"
             },
             "transport-options": {
                 "symlink": true,
@@ -8050,10 +8171,12 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "roave/security-advisories": 20,
-        "vineethkrishnan/xrechnung-kit-core": 20
+        "vineethkrishnan/xrechnung-kit-cli": 20,
+        "vineethkrishnan/xrechnung-kit-core": 20,
+        "vineethkrishnan/xrechnung-kit-kosit-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

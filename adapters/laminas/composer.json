@@ -39,7 +39,7 @@
             "module": "XrechnungKit\\Laminas\\Module"
         },
         "branch-alias": {
-            "dev-main": "0.x-dev"
+            "dev-main": "0.1.x-dev"
         }
     },
     "config": {

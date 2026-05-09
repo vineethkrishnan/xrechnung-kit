@@ -28,7 +28,7 @@
             "scenarios-source": "https://github.com/itplr-kosit/validator-configuration-xrechnung/releases"
         },
         "branch-alias": {
-            "dev-main": "0.x-dev"
+            "dev-main": "0.1.x-dev"
         }
     },
     "config": {
