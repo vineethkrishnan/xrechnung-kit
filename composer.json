@@ -26,7 +26,9 @@
             "url": "core",
             "options": {
                 "symlink": true,
-                "versions": { "vineethkrishnan/xrechnung-kit-core": "0.1.0" }
+                "versions": {
+                    "vineethkrishnan/xrechnung-kit-core": "0.1.0"
+                }
             }
         },
         {
@@ -34,7 +36,9 @@
             "url": "cli",
             "options": {
                 "symlink": true,
-                "versions": { "vineethkrishnan/xrechnung-kit-cli": "0.1.0" }
+                "versions": {
+                    "vineethkrishnan/xrechnung-kit-cli": "0.1.0"
+                }
             }
         },
         {
@@ -42,7 +46,9 @@
             "url": "kosit-bundle",
             "options": {
                 "symlink": true,
-                "versions": { "vineethkrishnan/xrechnung-kit-kosit-bundle": "0.1.0" }
+                "versions": {
+                    "vineethkrishnan/xrechnung-kit-kosit-bundle": "0.1.0"
+                }
             }
         }
     ],
@@ -60,7 +66,12 @@
         "cs-fix": "php-cs-fixer fix",
         "kosit": "validate-kosit core/tests/Fixtures",
         "benchmark": "phpbench run --report=aggregate",
-        "qa": ["@cs", "@stan", "@psalm", "@test"]
+        "qa": [
+            "@cs",
+            "@stan",
+            "@psalm",
+            "@test"
+        ]
     },
     "scripts-descriptions": {
         "test": "Run PHPUnit across the workspace",
