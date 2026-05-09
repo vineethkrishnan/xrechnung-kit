@@ -14,6 +14,7 @@
         "phpstan/extension-installer": "^1.4",
         "vimeo/psalm": "^6.0",
         "friendsofphp/php-cs-fixer": "^3.59",
+        "phpbench/phpbench": "^1.2",
         "roave/security-advisories": "dev-latest",
         "vineethkrishnan/xrechnung-kit-core": "@dev"
     },
@@ -22,7 +23,8 @@
     ],
     "autoload-dev": {
         "psr-4": {
-            "XrechnungKit\\Tests\\": "core/tests/"
+            "XrechnungKit\\Tests\\": "core/tests/",
+            "XrechnungKit\\Benchmarks\\": "benchmarks/"
         }
     },
     "scripts": {
@@ -32,6 +34,7 @@
         "cs": "php-cs-fixer fix --dry-run --diff",
         "cs-fix": "php-cs-fixer fix",
         "kosit": "@php cli/validate-kosit corpus core/tests/Fixtures",
+        "benchmark": "phpbench run --report=aggregate",
         "qa": ["@cs", "@stan", "@psalm", "@test"]
     },
     "scripts-descriptions": {
@@ -41,6 +44,7 @@
         "cs": "Check code style (dry-run)",
         "cs-fix": "Apply code style fixes",
         "kosit": "Validate the fixture corpus with KoSIT Schematron (requires Java 17+)",
+        "benchmark": "Run PHPBench suites under benchmarks/ with the aggregate report",
         "qa": "Run cs, stan, psalm, test in order"
     },
     "config": {
