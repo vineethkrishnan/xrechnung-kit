@@ -1,0 +1,80 @@
+name: sigstore
+
+on:
+  workflow_run:
+    workflows: [sbom]
+    types: [completed]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  sign:
+    name: sign release artifacts (keyless)
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    env:
+      REPO_SLUG: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Resolve latest release tag
+        id: rel
+        run: |
+          tag=$(gh release list \
+            --repo "$REPO_SLUG" \
+            --limit 1 \
+            --json tagName \
+            --jq '.[0].tagName')
+          if [ -z "$tag" ]; then
+            echo "no published release found" >&2
+            exit 1
+          fi
+          printf 'tag=%s\n' "$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Download release assets
+        env:
+          RELEASE_TAG: ${{ steps.rel.outputs.tag }}
+        run: |
+          mkdir -p artifacts
+          gh release download "$RELEASE_TAG" \
+            --repo "$REPO_SLUG" \
+            --dir artifacts
+
+      - name: Fetch auto-generated source archive
+        env:
+          RELEASE_TAG: ${{ steps.rel.outputs.tag }}
+        run: |
+          curl -fsSL \
+            -o "artifacts/${RELEASE_TAG}-source.tar.gz" \
+            "https://github.com/${REPO_SLUG}/archive/refs/tags/${RELEASE_TAG}.tar.gz"
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign artifacts
+        working-directory: artifacts
+        run: |
+          shopt -s nullglob
+          for f in *; do
+            [ -f "$f" ] || continue
+            case "$f" in
+              *.sigstore|*.sig|*.pem|*.crt) continue ;;
+            esac
+            cosign sign-blob --yes \
+              --bundle "$f.sigstore" \
+              "$f"
+          done
+
+      - name: Upload signatures to release
+        env:
+          RELEASE_TAG: ${{ steps.rel.outputs.tag }}
+        working-directory: artifacts
+        run: |
+          shopt -s nullglob
+          for sig in *.sigstore; do
+            [ -f "$sig" ] || continue
+            gh release upload "$RELEASE_TAG" "$sig" \
+              --repo "$REPO_SLUG" \
+              --clobber
+          done

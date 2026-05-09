@@ -1,0 +1,70 @@
+name: Feature request
+description: Propose a new capability, API change, or integration.
+title: "feat: <short summary>"
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the proposal. Open an issue before opening a non-trivial PR so we can scope the work together.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve? Who hits it and how often?
+      placeholder: "When mapping bookings with multiple VAT rates, I have to ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Sketch the API or behaviour change. Code samples welcome.
+      render: php
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What else did you try or think about? Why is the proposal better?
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Affected package(s)
+      multiple: true
+      options:
+        - core
+        - kosit-bundle
+        - cli
+        - laravel adapter
+        - symfony adapter
+        - cakephp adapter
+        - laminas adapter
+        - mapper-simple
+        - mapper-bookings
+        - docs
+        - other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: breaking
+    attributes:
+      label: Breaking change?
+      options:
+        - "No"
+        - "Yes (requires a major bump)"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Links to specs (EN 16931 BR codes, KoSIT scenarios), prior art, or related issues.

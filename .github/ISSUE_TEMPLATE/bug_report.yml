@@ -1,0 +1,94 @@
+name: Bug report
+description: Report a defect in xrechnung-kit (wrong XML output, validation failure, crash, etc.)
+title: "bug: <short summary>"
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug report. Please fill out the sections below so we can reproduce the issue quickly.
+
+        For security-sensitive reports, do **not** use this form. See [SECURITY.md](../../SECURITY.md).
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A clear, one-paragraph description of the bug.
+      placeholder: "Generated XML is missing cbc:DueDate when InvoicePeriod is also set ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps. If possible, include a small `MappingData` sample or a fixture file path.
+      placeholder: |
+        1. Construct MappingData with ...
+        2. Call XRechnungGenerator->generateXRechnung(...)
+        3. Inspect the output
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: What actually happened? Include error messages, stack traces, or diffs.
+      render: shell
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Output of `composer show vineethkrishnan/xrechnung-kit-core` (or the commit SHA on `main`).
+      placeholder: "0.1.0 or commit abc1234"
+    validations:
+      required: true
+
+  - type: input
+    id: php
+    attributes:
+      label: PHP version
+      placeholder: "8.3.7"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: validation
+    attributes:
+      label: Validation status
+      description: Did the failing output pass UBL XSD validation?
+      options:
+        - Passes UBL XSD, fails KoSIT Schematron
+        - Fails UBL XSD
+        - Passes both, but output is semantically wrong
+        - Did not get far enough to validate
+        - Not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Java version (if KoSIT-related), framework adapter in use (if any).
+      placeholder: "macOS 14.5, Java 17, no adapter"
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Logs, screenshots, related issues, or context.

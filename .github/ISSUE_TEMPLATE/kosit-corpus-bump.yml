@@ -1,0 +1,77 @@
+name: KoSIT corpus / scenarios bump
+description: Track an upstream KoSIT scenarios release and the work to adopt it.
+title: "chore(kosit-bundle): bump scenarios to <version>"
+labels: ["kosit-bundle", "dependencies"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when KoSIT publishes a new validator scenarios release. One issue per upstream version.
+
+        Pinning policy lives in [CONTRIBUTING.md](../../CONTRIBUTING.md#release-process):
+        - Patch: no scenarios bump.
+        - Minor: scenarios may bump if pass / fail equivalence is preserved.
+        - Major: required for any change to emitted XML or to the public API.
+
+  - type: input
+    id: target_version
+    attributes:
+      label: Target KoSIT scenarios version
+      placeholder: "e.g. 2.0.1"
+    validations:
+      required: true
+
+  - type: input
+    id: current_version
+    attributes:
+      label: Currently pinned version
+      description: Value from `kosit-bundle/composer.json` or the bundle README.
+      placeholder: "e.g. 2.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: release_link
+    attributes:
+      label: Upstream release link
+      placeholder: "https://github.com/itplr-kosit/validator-configuration-xrechnung/releases/tag/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: Notable changes in this release
+      description: Summarise the upstream changelog. Call out anything that may change pass / fail behaviour or emitted XML.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Expected impact on this project
+      options:
+        - Patch (no scenarios bump needed; do not adopt)
+        - Minor (pass / fail preserved)
+        - Major (changes emitted XML or pass / fail behaviour)
+        - Unknown (needs investigation)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Adoption checklist
+      options:
+        - label: Run the full fixture corpus against the new scenarios
+        - label: Diff KoSIT reports vs the previous pin
+        - label: Update `kosit-bundle/composer.json` and bundle README
+        - label: Note the bump in `CHANGELOG.md` (handled by release-please)
+        - label: Decide release type (minor or major) per pinning policy
+        - label: Open the bump PR and reference this issue
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Notes
+      description: Anything else worth recording (failed fixtures, vendor advisories, etc.).
