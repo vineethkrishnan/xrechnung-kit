@@ -8,6 +8,7 @@
     failOnWarning="true"
     failOnRisky="true"
     failOnNotice="true"
+    failOnPhpunitWarning="false"
     beStrictAboutOutputDuringTests="true"
     beStrictAboutChangesToGlobalState="true"
     requireCoverageMetadata="false"
@@ -15,7 +16,6 @@
     <testsuites>
         <testsuite name="core">
             <directory>core/tests</directory>
-            <exclude>core/tests/Fixtures</exclude>
         </testsuite>
     </testsuites>
 
@@ -24,14 +24,6 @@
             <directory>core/src</directory>
         </include>
     </source>
-
-    <coverage includeUncoveredFiles="true">
-        <report>
-            <clover outputFile="clover.xml" />
-            <html outputDirectory="coverage" />
-            <text outputFile="php://stdout" showOnlySummary="true" />
-        </report>
-    </coverage>
 
     <php>
         <ini name="error_reporting" value="-1" />
