@@ -1,0 +1,49 @@
+{
+    "name": "vineethkrishnan/xrechnung-kit-cli",
+    "description": "Command-line tools for xrechnung-kit. Ships validate-kosit which runs KoSIT Schematron validation against XRechnung XML files via the bundled validator.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["xrechnung", "en16931", "kosit", "cli"],
+    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "support": {
+        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/kosit-validation.md"
+    },
+    "authors": [
+        { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": "^8.1",
+        "vineethkrishnan/xrechnung-kit-core": "^0.1 || ^1.0"
+    },
+    "suggest": {
+        "vineethkrishnan/xrechnung-kit-kosit-bundle": "Required for the validate-kosit binary; ships the validator JAR and pinned scenarios."
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "XrechnungKit\\Cli\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "XrechnungKit\\Cli\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/validate-kosit"
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

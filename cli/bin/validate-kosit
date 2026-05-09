@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$autoloadCandidates = [
+    __DIR__ . '/../../../autoload.php',  // installed under vendor/bin via composer
+    __DIR__ . '/../vendor/autoload.php',  // standalone clone of cli/
+    __DIR__ . '/../../../vendor/autoload.php',  // monorepo dev workspace
+];
+
+$autoloaded = false;
+foreach ($autoloadCandidates as $autoload) {
+    if (is_file($autoload)) {
+        require $autoload;
+        $autoloaded = true;
+        break;
+    }
+}
+
+if (!$autoloaded) {
+    fwrite(STDERR, "Could not locate vendor/autoload.php; run composer install in the cli package or in the consuming project.\n");
+    exit(2);
+}
+
+exit(\XrechnungKit\Cli\ValidateKositCommand::run($argv));
