@@ -24,5 +24,10 @@ export default {
     'header-max-length': [2, 'always', 100],
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [2, 'always'],
+    // Conventional defaults wrap body / footer at 100 chars. We do not
+    // hard-wrap by policy (paragraphs as single long lines, soft-wrap in
+    // the renderer), and Dependabot release notes routinely exceed 100.
+    'body-max-line-length': [0],
+    'footer-max-line-length': [0],
   },
 };
