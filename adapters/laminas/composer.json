@@ -1,0 +1,50 @@
+{
+    "name": "vineethkrishnan/xrechnung-kit-laminas",
+    "description": "Laminas / Mezzio adapter for xrechnung-kit. Wires the framework-agnostic core into the Laminas service manager.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["xrechnung", "en16931", "e-invoicing", "laminas", "mezzio", "germany"],
+    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "support": {
+        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/frameworks/laminas.md"
+    },
+    "authors": [
+        { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": "^8.1",
+        "laminas/laminas-servicemanager": "^3.20 || ^4.0",
+        "psr/container": "^1.0 || ^2.0",
+        "psr/log": "^1.0 || ^2.0 || ^3.0",
+        "vineethkrishnan/xrechnung-kit-core": "^0.1 || ^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "XrechnungKit\\Laminas\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "XrechnungKit\\Laminas\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laminas": {
+            "config-provider": "XrechnungKit\\Laminas\\ConfigProvider",
+            "module": "XrechnungKit\\Laminas\\Module"
+        },
+        "branch-alias": {
+            "dev-main": "0.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
