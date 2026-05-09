@@ -4,9 +4,9 @@
 declare(strict_types=1);
 
 $autoloadCandidates = [
-    __DIR__ . '/../../../autoload.php',  // installed under vendor/bin via composer
-    __DIR__ . '/../vendor/autoload.php',  // standalone clone of cli/
-    __DIR__ . '/../../../vendor/autoload.php',  // monorepo dev workspace
+    __DIR__ . '/../../../../autoload.php',  // installed at vendor/vineethkrishnan/xrechnung-kit-cli/bin/
+    __DIR__ . '/../../vendor/autoload.php',  // monorepo dev workspace: cli/bin/ -> ../../vendor/
+    __DIR__ . '/../vendor/autoload.php',     // standalone clone of cli/ with its own vendor/
 ];
 
 $autoloaded = false;

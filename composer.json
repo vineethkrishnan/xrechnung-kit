@@ -3,7 +3,7 @@
     "description": "Development workspace for xrechnung-kit. Each sub-package under core/, kosit-bundle/, cli/, adapters/*, and mappers/* publishes to Packagist independently as vineethkrishnan/xrechnung-kit-*.",
     "type": "project",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.1"
@@ -16,10 +16,14 @@
         "friendsofphp/php-cs-fixer": "^3.59",
         "phpbench/phpbench": "^1.2",
         "roave/security-advisories": "dev-latest",
-        "vineethkrishnan/xrechnung-kit-core": "@dev"
+        "vineethkrishnan/xrechnung-kit-core": "@dev",
+        "vineethkrishnan/xrechnung-kit-cli": "@dev",
+        "vineethkrishnan/xrechnung-kit-kosit-bundle": "@dev"
     },
     "repositories": [
-        { "type": "path", "url": "core", "options": { "symlink": true } }
+        { "type": "path", "url": "core", "options": { "symlink": true } },
+        { "type": "path", "url": "cli", "options": { "symlink": true } },
+        { "type": "path", "url": "kosit-bundle", "options": { "symlink": true } }
     ],
     "autoload-dev": {
         "psr-4": {
@@ -33,7 +37,7 @@
         "psalm": "psalm",
         "cs": "php-cs-fixer fix --dry-run --diff",
         "cs-fix": "php-cs-fixer fix",
-        "kosit": "@php cli/validate-kosit corpus core/tests/Fixtures",
+        "kosit": "validate-kosit core/tests/Fixtures",
         "benchmark": "phpbench run --report=aggregate",
         "qa": ["@cs", "@stan", "@psalm", "@test"]
     },
