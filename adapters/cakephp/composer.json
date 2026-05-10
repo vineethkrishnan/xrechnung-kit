@@ -8,7 +8,7 @@
     "support": {
         "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
         "source": "https://github.com/vineethkrishnan/xrechnung-kit",
-        "docs": "https://github.com/vineethkrishnan/xrechnung-kit/blob/main/docs/frameworks/cakephp.md"
+        "docs": "https://xrechnung-kit.vineethnk.in/frameworks/cakephp"
     },
     "authors": [
         { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }

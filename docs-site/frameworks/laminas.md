@@ -41,7 +41,7 @@ return [
 
 ```php
 use XrechnungKit\Builder\XRechnungBuilder;
-use XrechnungKit\Generator\XRechnungGenerator;
+use XrechnungKit\XRechnungGenerator;
 
 final class InvoiceController extends AbstractActionController
 {

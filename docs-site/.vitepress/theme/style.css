@@ -1,0 +1,359 @@
+/*
+ * xrechnung-kit docs theme
+ *
+ * Inspired by the typographic sobriety of German legal and administrative
+ * documents. Uses open-licensed IBM Plex faces; no state symbols, no
+ * federal-specific palette, no impersonation of any official body.
+ */
+
+:root {
+  /* Palette */
+  --xk-c-ink: #1a1a1a;
+  --xk-c-ink-soft: #3a3a3a;
+  --xk-c-muted: #6a6a6a;
+  --xk-c-paper: #fdfcf9;
+  --xk-c-paper-alt: #f6f4ee;
+  --xk-c-rule: #d8d4c8;
+  --xk-c-rule-strong: #b8b2a3;
+
+  /* Heading: deep navy, distinct from any specific government brand colour */
+  --xk-c-heading: #0a1a3a;
+
+  /* Accent: warm oxblood / wine. Used sparingly for links and emphasis. */
+  --xk-c-accent: #8a1c1c;
+  --xk-c-accent-hover: #6f1313;
+  --xk-c-accent-soft: #f3e3e3;
+
+  /* Code surface */
+  --xk-c-code-bg: #f4f1ea;
+  --xk-c-code-border: #d8d4c8;
+
+  /* VitePress overrides */
+  --vp-c-brand-1: var(--xk-c-accent);
+  --vp-c-brand-2: var(--xk-c-accent-hover);
+  --vp-c-brand-3: var(--xk-c-accent);
+  --vp-c-brand-soft: var(--xk-c-accent-soft);
+
+  --vp-c-bg: var(--xk-c-paper);
+  --vp-c-bg-alt: var(--xk-c-paper-alt);
+  --vp-c-bg-elv: var(--xk-c-paper);
+  --vp-c-bg-soft: var(--xk-c-paper-alt);
+
+  --vp-c-text-1: var(--xk-c-ink);
+  --vp-c-text-2: var(--xk-c-ink-soft);
+  --vp-c-text-3: var(--xk-c-muted);
+
+  --vp-c-divider: var(--xk-c-rule);
+  --vp-c-gutter: var(--xk-c-rule);
+  --vp-c-border: var(--xk-c-rule-strong);
+
+  --vp-button-brand-bg: var(--xk-c-accent);
+  --vp-button-brand-hover-bg: var(--xk-c-accent-hover);
+  --vp-button-brand-active-bg: var(--xk-c-accent-hover);
+  --vp-button-brand-border: var(--xk-c-accent);
+  --vp-button-brand-text: #ffffff;
+
+  --vp-button-alt-bg: var(--xk-c-paper-alt);
+  --vp-button-alt-hover-bg: var(--xk-c-rule);
+  --vp-button-alt-text: var(--xk-c-ink);
+  --vp-button-alt-border: var(--xk-c-rule);
+
+  --vp-code-block-bg: var(--xk-c-code-bg);
+  --vp-code-line-highlight-color: rgba(138, 28, 28, 0.08);
+
+  /* Typography */
+  --vp-font-family-base: 'IBM Plex Sans', 'Inter', system-ui, -apple-system,
+    'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo,
+    Consolas, monospace;
+  --xk-font-family-serif: 'IBM Plex Serif', 'Source Serif Pro', Georgia, serif;
+
+  /* Layout */
+  --vp-layout-max-width: 1440px;
+}
+
+.dark {
+  --xk-c-ink: #e8e6df;
+  --xk-c-ink-soft: #c2bfb6;
+  --xk-c-muted: #908d83;
+  --xk-c-paper: #14161b;
+  --xk-c-paper-alt: #1c1f26;
+  --xk-c-rule: #2c2f37;
+  --xk-c-rule-strong: #404552;
+
+  --xk-c-heading: #cfd6e6;
+  --xk-c-accent: #d97070;
+  --xk-c-accent-hover: #e88a8a;
+  --xk-c-accent-soft: rgba(217, 112, 112, 0.15);
+
+  --xk-c-code-bg: #1a1d24;
+  --xk-c-code-border: #2c2f37;
+
+  --vp-c-brand-1: var(--xk-c-accent);
+  --vp-c-brand-2: var(--xk-c-accent-hover);
+  --vp-c-brand-3: var(--xk-c-accent);
+  --vp-c-brand-soft: var(--xk-c-accent-soft);
+
+  --vp-c-bg: var(--xk-c-paper);
+  --vp-c-bg-alt: var(--xk-c-paper-alt);
+  --vp-c-bg-elv: var(--xk-c-paper);
+  --vp-c-bg-soft: var(--xk-c-paper-alt);
+
+  --vp-c-text-1: var(--xk-c-ink);
+  --vp-c-text-2: var(--xk-c-ink-soft);
+  --vp-c-text-3: var(--xk-c-muted);
+
+  --vp-c-divider: var(--xk-c-rule);
+  --vp-c-gutter: var(--xk-c-rule);
+  --vp-c-border: var(--xk-c-rule-strong);
+
+  --vp-code-block-bg: var(--xk-c-code-bg);
+}
+
+/* Headings: serif, restrained letter-spacing, dark navy in light mode */
+:root .vp-doc h1,
+:root .vp-doc h2,
+:root .vp-doc h3,
+:root .vp-doc h4,
+:root .vp-doc h5,
+:root .vp-doc h6 {
+  font-family: var(--xk-font-family-serif);
+  color: var(--xk-c-heading);
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+
+.dark .vp-doc h1,
+.dark .vp-doc h2,
+.dark .vp-doc h3,
+.dark .vp-doc h4,
+.dark .vp-doc h5,
+.dark .vp-doc h6 {
+  color: var(--xk-c-heading);
+}
+
+.vp-doc h1 {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  margin-bottom: 0.75em;
+  border-bottom: 2px solid var(--xk-c-rule-strong);
+  padding-bottom: 0.4em;
+}
+
+.vp-doc h2 {
+  margin-top: 2.5em;
+  padding-top: 1.25em;
+  border-top: 1px solid var(--xk-c-rule);
+}
+
+.vp-doc h3 {
+  margin-top: 2em;
+}
+
+/* Body */
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.7;
+}
+
+.vp-doc a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--xk-c-accent-soft);
+  color: var(--xk-c-accent);
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+.vp-doc a:hover {
+  text-decoration-color: var(--xk-c-accent);
+  color: var(--xk-c-accent-hover);
+}
+
+/* Tables: full-width, formal, full borders, alternating rows */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--xk-c-rule-strong);
+  font-size: 0.92rem;
+  margin: 1.5em 0;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border: 1px solid var(--xk-c-rule);
+  padding: 0.55em 0.85em;
+  text-align: left;
+  vertical-align: top;
+}
+
+.vp-doc thead th {
+  background-color: var(--xk-c-paper-alt);
+  font-weight: 600;
+  border-bottom: 2px solid var(--xk-c-rule-strong);
+  font-family: var(--xk-font-family-serif);
+}
+
+.vp-doc tbody tr:nth-child(even) {
+  background-color: var(--xk-c-paper-alt);
+}
+
+/* Code blocks: subtle warm grey, no rounded glow */
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--xk-c-code-border);
+  border-radius: 6px;
+}
+
+.vp-doc :not(pre) > code {
+  background-color: var(--xk-c-code-bg);
+  border: 1px solid var(--xk-c-code-border);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: var(--xk-c-ink);
+}
+
+/* Blockquotes: legal-document marginal note feel */
+.vp-doc blockquote {
+  border-left: 3px solid var(--xk-c-rule-strong);
+  background: var(--xk-c-paper-alt);
+  padding: 0.75em 1.25em;
+  margin: 1.25em 0;
+  font-style: normal;
+  color: var(--xk-c-ink-soft);
+}
+
+.vp-doc blockquote p {
+  margin: 0.4em 0;
+}
+
+/* Custom containers: tight, formal */
+.vp-doc .custom-block {
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 0.95em;
+  padding: 0.85em 1.1em;
+}
+
+.vp-doc .custom-block.tip {
+  border-color: var(--xk-c-rule-strong);
+  background: var(--xk-c-paper-alt);
+  color: var(--xk-c-ink);
+}
+
+.vp-doc .custom-block.warning {
+  border-color: #c47700;
+  background: #fff8ec;
+  color: #4a2e00;
+}
+
+.dark .vp-doc .custom-block.warning {
+  background: rgba(196, 119, 0, 0.12);
+  color: #f0d8a8;
+}
+
+.vp-doc .custom-block.danger {
+  border-color: var(--xk-c-accent);
+  background: var(--xk-c-accent-soft);
+  color: var(--xk-c-ink);
+}
+
+.vp-doc .custom-block-title {
+  font-family: var(--xk-font-family-serif);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+/* Site title: uses serif wordmark */
+.VPNavBarTitle .title {
+  font-family: var(--xk-font-family-serif);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+/* Sidebar: tighter, list-like */
+.VPSidebarItem .text {
+  font-size: 0.92rem;
+}
+
+.VPSidebarItem.is-active > .item .link .text {
+  color: var(--xk-c-accent);
+  font-weight: 600;
+}
+
+/* Nav: less floaty */
+.VPNavBar {
+  border-bottom: 1px solid var(--xk-c-rule);
+}
+
+/* Hero (used on home page) */
+.VPHero .name {
+  font-family: var(--xk-font-family-serif);
+  background: none !important;
+  -webkit-text-fill-color: var(--xk-c-heading) !important;
+  color: var(--xk-c-heading) !important;
+  letter-spacing: -0.015em;
+}
+
+.VPHero .text {
+  color: var(--xk-c-ink);
+  font-family: var(--xk-font-family-serif);
+}
+
+.VPHero .tagline {
+  color: var(--xk-c-ink-soft);
+  font-family: var(--vp-font-family-base);
+  max-width: 50ch;
+}
+
+/* Feature cards: flatter, more legal-form */
+.VPFeature {
+  border: 1px solid var(--xk-c-rule);
+  border-radius: 4px;
+  background: var(--xk-c-paper);
+  transition: border-color 0.2s ease;
+}
+
+.VPFeature:hover {
+  border-color: var(--xk-c-accent);
+}
+
+.VPFeature .title {
+  font-family: var(--xk-font-family-serif);
+  color: var(--xk-c-heading);
+  font-weight: 600;
+}
+
+.VPFeature .details {
+  color: var(--xk-c-ink-soft);
+}
+
+/* Footer */
+.VPFooter {
+  background: var(--xk-c-paper-alt);
+  border-top: 1px solid var(--xk-c-rule);
+  font-size: 0.85rem;
+  color: var(--xk-c-muted);
+}
+
+/* Print: collapse to a clean printable form */
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPDocFooter,
+  .VPDocAside,
+  .VPSocialLinks,
+  .VPLocalSearchBox {
+    display: none !important;
+  }
+  .vp-doc {
+    max-width: 100% !important;
+  }
+  body {
+    background: white;
+  }
+}

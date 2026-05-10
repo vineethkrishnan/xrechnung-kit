@@ -1,0 +1,14 @@
+$ php examples/standalone/generate.php
+
+Generated: examples/standalone/out/Demo-Invoice-001_invalid.xml
+Invoice:   Demo-Invoice-001, 2 lines, payable 4783.80 EUR
+Validator: FAIL (lands at *_invalid.xml)
+
+Validation errors:
+  - cac:AccountingCustomerParty: missing required cbc:EndpointID
+  - cbc:LineExtensionAmount: 4020.00 does not match sum of line totals 3600.00
+  - cbc:DocumentCurrencyCode: required field is empty
+
+
+$ ls examples/standalone/out
+Demo-Invoice-001_invalid.xml

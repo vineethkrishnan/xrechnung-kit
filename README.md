@@ -78,14 +78,19 @@ xrechnung-kit aims to fill the remaining gap: KoSIT-strict valid XRechnung 3.0 f
 
 ## Documentation
 
-- [Getting started](docs/getting-started.md)
-- [MappingData: the canonical contract](docs/mapping-data.md)
-- [KoSIT Schematron validation: local, Docker, and CI](docs/kosit-validation.md)
-- Framework adapters: [Laravel](docs/frameworks/laravel.md), [Symfony](docs/frameworks/symfony.md), [CakePHP](docs/frameworks/cakephp.md), [Laminas](docs/frameworks/laminas.md)
-- [Migrating from easybill/xrechnung-php](docs/migrating-from-easybill.md)
-- [Glossary of German XRechnung terms](docs/glossary-de.md)
-- [Versioning and compatibility policies](docs/policies.md)
-- [Upgrading from 0.x to 1.0](docs/upgrading/0.x-to-1.0.md)
+Full documentation is hosted at **[xrechnung-kit.vineethnk.in](https://xrechnung-kit.vineethnk.in/)** (also reachable at [xrechnung-kit.pages.dev](https://xrechnung-kit.pages.dev/)). Source lives under `docs-site/` and auto-deploys to Cloudflare Pages on every push to `main`.
+
+- [Getting started](https://xrechnung-kit.vineethnk.in/getting-started)
+- [Walkthrough](https://xrechnung-kit.vineethnk.in/walkthrough/) (step-by-step from `composer require` to a valid XML)
+- [MappingData: the canonical contract](https://xrechnung-kit.vineethnk.in/mapping-data)
+- [KoSIT Schematron validation](https://xrechnung-kit.vineethnk.in/kosit-validation)
+- Framework adapters: [Laravel](https://xrechnung-kit.vineethnk.in/frameworks/laravel), [Symfony](https://xrechnung-kit.vineethnk.in/frameworks/symfony), [CakePHP](https://xrechnung-kit.vineethnk.in/frameworks/cakephp), [Laminas](https://xrechnung-kit.vineethnk.in/frameworks/laminas)
+- [API reference](https://xrechnung-kit.vineethnk.in/reference/api)
+- [Document type codes](https://xrechnung-kit.vineethnk.in/reference/document-types)
+- [Glossary of German XRechnung terms](https://xrechnung-kit.vineethnk.in/glossary-de)
+- [Versioning and compatibility policies](https://xrechnung-kit.vineethnk.in/policies)
+- [Upgrading from 0.x to 1.0](https://xrechnung-kit.vineethnk.in/upgrading/0.x-to-1.0)
+- [Migrating from easybill/xrechnung-php](https://xrechnung-kit.vineethnk.in/migrating-from-easybill)
 
 ## Versioning
 

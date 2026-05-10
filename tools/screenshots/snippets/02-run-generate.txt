@@ -1,0 +1,5 @@
+$ php examples/standalone/generate.php
+
+Generated: examples/standalone/out/Demo-Invoice-001.xml
+Invoice:   Demo-Invoice-001, 2 lines, payable 4783.80 EUR
+Validator: PASS (UBL XSD valid)

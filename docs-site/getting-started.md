@@ -33,8 +33,8 @@ declare(strict_types=1);
 require __DIR__ . '/vendor/autoload.php';
 
 use XrechnungKit\Builder\XRechnungBuilder;
-use XrechnungKit\Generator\XRechnungGenerator;
-use XrechnungKit\Validator\XRechnungValidator;
+use XrechnungKit\XRechnungGenerator;
+use XrechnungKit\XRechnungValidator;
 use XrechnungKit\Mapping\MappingData;
 
 $mappingData = MyInvoiceMapper::fromMyDomainModel($invoice)->produce();

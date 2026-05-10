@@ -1,0 +1,18 @@
+{
+  "name": "xrechnung-kit-docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Documentation site for xrechnung-kit, built with VitePress and deployed to Cloudflare Pages.",
+  "scripts": {
+    "docs:dev": "vitepress dev docs-site",
+    "docs:build": "vitepress build docs-site",
+    "docs:preview": "vitepress preview docs-site",
+    "screenshots:cli": "bash tools/screenshots/silicon-capture.sh",
+    "screenshots:ui": "playwright test --config tools/screenshots/playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "vitepress": "^1.5.0"
+  }
+}

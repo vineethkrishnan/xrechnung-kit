@@ -10,8 +10,13 @@ composer.phar
 
 # Node / commitlint
 /node_modules/
-package-lock.json
+**/node_modules/
 yarn.lock
+pnpm-lock.yaml
+
+# VitePress build artifacts
+/docs-site/.vitepress/dist/
+/docs-site/.vitepress/cache/
 
 # PHP tooling
 .phpunit.result.cache

@@ -45,7 +45,7 @@ Or via the container:
 
 ```php
 use XrechnungKit\Builder\XRechnungBuilder;
-use XrechnungKit\Generator\XRechnungGenerator;
+use XrechnungKit\XRechnungGenerator;
 
 public function __invoke(InvoiceController $controller, XRechnungGenerator $generator)
 {

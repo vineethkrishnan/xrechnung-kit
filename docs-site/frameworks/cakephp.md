@@ -44,7 +44,7 @@ return [
 
 ```php
 use XrechnungKit\Builder\XRechnungBuilder;
-use XrechnungKit\Generator\XRechnungGenerator;
+use XrechnungKit\XRechnungGenerator;
 use XrechnungKit\CakePhp\Service\XrechnungKitService;
 
 final class InvoicesController extends AppController
