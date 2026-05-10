@@ -27,6 +27,7 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+          persist-credentials: false
 
       - name: Cache splitsh-lite binary
         id: cache-splitsh-bin
