@@ -45,14 +45,6 @@ jobs:
             | tar -xz -C /tmp/splitsh
           chmod +x /tmp/splitsh/splitsh-lite
 
-      - name: Cache splitsh state
-        uses: actions/cache@v5
-        with:
-          path: .git/splitsh.db
-          key: splitsh-state-${{ env.SUBTREE_PREFIX }}-${{ github.sha }}
-          restore-keys: |
-            splitsh-state-${{ env.SUBTREE_PREFIX }}-
-
       - name: Split main
         id: split-main
         run: |
