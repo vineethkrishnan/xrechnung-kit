@@ -65,12 +65,17 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Frameworks',
+        text: 'Framework adapters',
         items: [
           { text: 'Laravel', link: '/frameworks/laravel' },
           { text: 'Symfony', link: '/frameworks/symfony' },
           { text: 'CakePHP', link: '/frameworks/cakephp' },
           { text: 'Laminas', link: '/frameworks/laminas' },
+        ],
+      },
+      {
+        text: 'Platform integrations',
+        items: [
           { text: 'TYPO3', link: '/frameworks/typo3' },
           { text: 'Shopware 6', link: '/frameworks/shopware' },
           { text: 'WordPress', link: '/frameworks/wordpress' },
@@ -119,12 +124,17 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Framework integration',
+          text: 'Framework adapters',
           items: [
             { text: 'Laravel', link: '/frameworks/laravel' },
             { text: 'Symfony', link: '/frameworks/symfony' },
             { text: 'CakePHP', link: '/frameworks/cakephp' },
             { text: 'Laminas', link: '/frameworks/laminas' },
+          ],
+        },
+        {
+          text: 'Platform integrations',
+          items: [
             { text: 'TYPO3', link: '/frameworks/typo3' },
             { text: 'Shopware 6', link: '/frameworks/shopware' },
             { text: 'WordPress', link: '/frameworks/wordpress' },
