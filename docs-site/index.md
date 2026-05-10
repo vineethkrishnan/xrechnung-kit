@@ -68,7 +68,7 @@ $ok = $validator->validate($path);
 
 The generator runs UBL XSD validation in memory before writing. If validation fails, the file is written to a `*_invalid.xml` sibling for inspection rather than the requested path; a deduplicated operator alert is emitted through PSR-3.
 
-See the full [walkthrough](/walkthrough/) for a step-by-step tour from `composer require` to a Schematron-valid file on disk.
+See the full [walkthrough](/walkthrough/) for a step-by-step tour from `composer require` to a Schematron-valid file on disk. The complete public surface is in the [API overview](/reference/api), with per-class detail in the [generated reference](/api/).
 
 ## Status and compliance
 

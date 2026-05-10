@@ -74,7 +74,9 @@ See [docs/kosit-validation.md](kosit-validation.md) for local, Docker, and CI co
 
 ## Next steps
 
+- [Walkthrough](walkthrough/) - six-step tour with rendered terminal and code captures
 - [Mapping data contract](mapping-data.md) - the canonical public API contract
+- [API overview](reference/api.md) and [generated API reference](/api/) - curated narrative plus the per-class phpDocumentor pages
 - [KoSIT Schematron validation](kosit-validation.md) - going beyond UBL XSD
 - Framework adapters: [Laravel](frameworks/laravel.md), [Symfony](frameworks/symfony.md), [CakePHP](frameworks/cakephp.md), [Laminas](frameworks/laminas.md)
 - [Glossary of German terms](glossary-de.md) - Leitweg-ID, Anzahlung, Rechnungsempfaenger, ...

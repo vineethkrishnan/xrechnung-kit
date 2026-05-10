@@ -100,4 +100,4 @@ After running the standalone example or the equivalent flow in your own app, you
 - A PSR-3 alert at most once per invoice number per cool-down window when invalid output is generated.
 - Zero network calls. Zero telemetry. Zero global state mutated.
 
-Continue with [Mapping data contract](/mapping-data) for the full input shape, or [KoSIT Schematron validation](/kosit-validation) for the optional federal-business-rule pass.
+Continue with [Mapping data contract](/mapping-data) for the full input shape, [API overview](/reference/api) for the curated public surface (or the per-class [generated reference](/api/)), or [KoSIT Schematron validation](/kosit-validation) for the optional federal-business-rule pass.
