@@ -90,7 +90,7 @@ jobs:
           MAIN_SHA: ${{ steps.split-main.outputs.sha }}
         run: |
           set -euo pipefail
-          MIRROR_URL="https://x-access-token:${SPLIT_PUSH_TOKEN}@github.com/${MIRROR_OWNER}/${MIRROR_REPO}.git"
+          MIRROR_URL="https://${MIRROR_OWNER}:${SPLIT_PUSH_TOKEN}@github.com/${MIRROR_OWNER}/${MIRROR_REPO}.git"
           git push --force "${MIRROR_URL}" "${MAIN_SHA}:refs/heads/main"
           if [ -s /tmp/tag-pushes.txt ]; then
             while read -r SHA REF; do
