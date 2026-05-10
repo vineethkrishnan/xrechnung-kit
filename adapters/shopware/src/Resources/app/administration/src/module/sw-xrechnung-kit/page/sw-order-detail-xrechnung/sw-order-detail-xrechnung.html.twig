@@ -1,0 +1,85 @@
+{% block sw_order_detail_xrechnung %}
+<sw-card-view class="sw-order-detail-xrechnung">
+
+    {% block sw_order_detail_xrechnung_loading %}
+    <sw-loader v-if="isLoading"></sw-loader>
+    {% endblock %}
+
+    {% block sw_order_detail_xrechnung_empty %}
+    <sw-empty-state
+        v-else-if="!invoice"
+        :title="$tc('sw-xrechnung-kit.detail.empty.title')"
+        :subline="$tc('sw-xrechnung-kit.detail.empty.subline')"
+        icon="regular-document-pdf"
+    ></sw-empty-state>
+    {% endblock %}
+
+    {% block sw_order_detail_xrechnung_content %}
+    <template v-else>
+
+        {% block sw_order_detail_xrechnung_status_card %}
+        <sw-card
+            :title="$tc('sw-xrechnung-kit.detail.statusCardTitle')"
+            class="sw-order-detail-xrechnung__status-card"
+        >
+            <sw-container columns="1fr 1fr" gap="20px">
+                <sw-description-list>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.field.status') }}</dt>
+                    <dd>
+                        <sw-label :variant="statusVariant">{{ statusLabel }}</sw-label>
+                    </dd>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.field.generatedAt') }}</dt>
+                    <dd>{{ generatedAtDisplay }}</dd>
+                </sw-description-list>
+                <sw-description-list>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.field.validatorVersion') }}</dt>
+                    <dd>{{ invoice.validatorVersion || '-' }}</dd>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.field.kositResult') }}</dt>
+                    <dd>{{ kositLabel }}</dd>
+                </sw-description-list>
+            </sw-container>
+        </sw-card>
+        {% endblock %}
+
+        {% block sw_order_detail_xrechnung_file_card %}
+        <sw-card
+            :title="$tc('sw-xrechnung-kit.detail.fileCardTitle')"
+            class="sw-order-detail-xrechnung__file-card"
+        >
+            <sw-description-list>
+                <dt>{{ $tc('sw-xrechnung-kit.detail.field.path') }}</dt>
+                <dd><code>{{ invoice.generatedPath || '-' }}</code></dd>
+            </sw-description-list>
+
+            <div class="sw-order-detail-xrechnung__actions">
+                <sw-button
+                    variant="primary"
+                    :disabled="!canDownload || isDownloading"
+                    :is-loading="isDownloading"
+                    @click="downloadXml"
+                >
+                    {{ $tc('sw-xrechnung-kit.detail.action.download') }}
+                </sw-button>
+            </div>
+        </sw-card>
+        {% endblock %}
+
+        {% block sw_order_detail_xrechnung_errors_card %}
+        <sw-card
+            v-if="hasErrors"
+            :title="$tc('sw-xrechnung-kit.detail.errorsCardTitle')"
+            class="sw-order-detail-xrechnung__errors-card"
+        >
+            <ul class="sw-order-detail-xrechnung__errors-list">
+                <li v-for="(error, idx) in invoice.errors" :key="idx">
+                    {{ error }}
+                </li>
+            </ul>
+        </sw-card>
+        {% endblock %}
+
+    </template>
+    {% endblock %}
+
+</sw-card-view>
+{% endblock %}

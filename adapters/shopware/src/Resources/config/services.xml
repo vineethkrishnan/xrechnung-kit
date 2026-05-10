@@ -47,5 +47,10 @@
             <argument>%kernel.project_dir%</argument>
             <tag name="kernel.event_subscriber"/>
         </service>
+
+        <!-- Admin-only download controller -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Controller\Admin\XrechnungController" public="true">
+            <argument type="service" id="xrechnung_kit_invoice.repository"/>
+        </service>
     </services>
 </container>

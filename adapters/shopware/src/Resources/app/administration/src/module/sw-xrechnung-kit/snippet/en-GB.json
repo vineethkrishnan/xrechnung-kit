@@ -1,0 +1,45 @@
+{
+    "sw-xrechnung-kit": {
+        "general": {
+            "mainMenuItemGeneral": "xrechnung-kit",
+            "descriptionTextModule": "XRechnung 3.0 generation and validation"
+        },
+        "detail": {
+            "tabTitle": "XRechnung",
+            "statusCardTitle": "Status",
+            "fileCardTitle": "Generated file",
+            "errorsCardTitle": "Validation errors",
+            "field": {
+                "status": "Status",
+                "generatedAt": "Generated at",
+                "validatorVersion": "Validator version",
+                "kositResult": "KoSIT check",
+                "path": "Path"
+            },
+            "status": {
+                "pending": "Pending",
+                "generated": "Generated",
+                "invalid": "Invalid",
+                "failed": "Failed"
+            },
+            "kosit": {
+                "pass": "Passed",
+                "fail": "Failed",
+                "skipped": "Skipped"
+            },
+            "action": {
+                "download": "Download XML"
+            },
+            "empty": {
+                "title": "No XRechnung yet",
+                "subline": "No XRechnung has been generated for this order yet."
+            }
+        },
+        "acl": {
+            "title": "XRechnung",
+            "viewer": "Viewer",
+            "editor": "Editor",
+            "deleter": "Deleter"
+        }
+    }
+}

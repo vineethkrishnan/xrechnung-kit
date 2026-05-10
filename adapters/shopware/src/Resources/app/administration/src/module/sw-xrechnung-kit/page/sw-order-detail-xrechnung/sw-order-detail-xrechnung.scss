@@ -1,0 +1,43 @@
+/* Styles for the order-detail XRechnung tab. The palette deliberately
+ * stays neutral so it inherits whichever Shopware theme the operator
+ * is running. */
+
+.sw-order-detail-xrechnung {
+
+    &__status-card,
+    &__file-card,
+    &__errors-card {
+        margin-bottom: 24px;
+    }
+
+    &__file-card {
+
+        code {
+            font-family: var(--font-family-monospace, monospace);
+            font-size: 0.85em;
+            color: var(--color-darkgray-200);
+            word-break: break-all;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    &__errors-list {
+        list-style: disc inside;
+        padding-left: 0;
+        margin: 0;
+
+        li {
+            font-family: var(--font-family-monospace, monospace);
+            font-size: 0.85em;
+            line-height: 1.55;
+            margin-bottom: 6px;
+            color: var(--color-crimson-700, #8a1c1c);
+        }
+    }
+}

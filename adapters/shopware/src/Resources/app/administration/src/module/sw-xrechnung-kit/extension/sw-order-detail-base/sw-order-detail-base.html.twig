@@ -1,0 +1,16 @@
+{# Block name verified against sw-order-detail-base.html.twig in
+   shopware/platform 6.5 and 6.6. If a future major renames the block,
+   the override silently no-ops; verify on first install of a new
+   shopware major.
+#}
+{% block sw_order_detail_content_tabs %}
+    {% parent %}
+
+    <sw-tabs-item
+        class="sw-order-detail-base__xrechnung-tab"
+        :route="{ name: 'sw.order.detail.xrechnung', params: { id: $route.params.id } }"
+        :title="$tc('sw-xrechnung-kit.detail.tabTitle')"
+    >
+        {{ $tc('sw-xrechnung-kit.detail.tabTitle') }}
+    </sw-tabs-item>
+{% endblock %}
