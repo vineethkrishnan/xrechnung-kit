@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Seller party</title>
+        <title lang="de-DE">Verkaeufer</title>
+
+        <input-field type="text">
+            <name>sellerName</name>
+            <label>Seller legal name</label>
+            <label lang="de-DE">Verkaeufer (Firmenname)</label>
+            <required>true</required>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerVatId</name>
+            <label>Seller VAT ID</label>
+            <label lang="de-DE">Verkaeufer USt-IdNr.</label>
+            <required>true</required>
+            <placeholder>DE123456789</placeholder>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerStreet</name>
+            <label>Street</label>
+            <label lang="de-DE">Strasse</label>
+            <required>true</required>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerCity</name>
+            <label>City</label>
+            <label lang="de-DE">Stadt</label>
+            <required>true</required>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerPostalCode</name>
+            <label>Postal code</label>
+            <label lang="de-DE">Postleitzahl</label>
+            <required>true</required>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerCountryCode</name>
+            <label>Country code (ISO 3166-1 alpha-2)</label>
+            <label lang="de-DE">Laendercode (ISO 3166-1 alpha-2)</label>
+            <required>true</required>
+            <defaultValue>DE</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerEndpointEmail</name>
+            <label>Seller endpoint email (UBL EndpointID)</label>
+            <label lang="de-DE">Verkaeufer-Endpunkt-E-Mail (UBL EndpointID)</label>
+            <placeholder>billing@example.com</placeholder>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Buyer reference handling</title>
+        <title lang="de-DE">Kaeuferreferenz</title>
+
+        <input-field type="single-select">
+            <name>leitwegIdSource</name>
+            <label>Leitweg-ID source</label>
+            <label lang="de-DE">Leitweg-ID Quelle</label>
+            <defaultValue>order_custom_field</defaultValue>
+            <options>
+                <option>
+                    <id>order_custom_field</id>
+                    <name>Order custom field xrechnungKitLeitwegId</name>
+                    <name lang="de-DE">Bestell-Zusatzfeld xrechnungKitLeitwegId</name>
+                </option>
+                <option>
+                    <id>customer_custom_field</id>
+                    <name>Customer custom field xrechnungKitLeitwegId</name>
+                    <name lang="de-DE">Kunden-Zusatzfeld xrechnungKitLeitwegId</name>
+                </option>
+                <option>
+                    <id>billing_address_company</id>
+                    <name>Billing address company line (legacy fallback)</name>
+                    <name lang="de-DE">Rechnungsadresse Firmenzeile (Legacy)</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="bool">
+            <name>requireLeitwegIdForB2g</name>
+            <label>Reject B2G generation when Leitweg-ID is missing</label>
+            <label lang="de-DE">B2G-Erzeugung ablehnen, wenn Leitweg-ID fehlt</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Generation pipeline</title>
+        <title lang="de-DE">Erzeugungs-Pipeline</title>
+
+        <input-field type="single-select">
+            <name>autoGenerateOnState</name>
+            <label>Auto-generate on order state</label>
+            <label lang="de-DE">Automatische Erzeugung bei Bestellstatus</label>
+            <defaultValue>completed</defaultValue>
+            <options>
+                <option>
+                    <id>completed</id>
+                    <name>Completed</name>
+                    <name lang="de-DE">Abgeschlossen</name>
+                </option>
+                <option>
+                    <id>in_progress</id>
+                    <name>In progress</name>
+                    <name lang="de-DE">In Bearbeitung</name>
+                </option>
+                <option>
+                    <id>open</id>
+                    <name>Open</name>
+                    <name lang="de-DE">Offen</name>
+                </option>
+                <option>
+                    <id>manual</id>
+                    <name>Manual only (admin button)</name>
+                    <name lang="de-DE">Nur manuell (Admin-Schaltflaeche)</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="text">
+            <name>outputDirectory</name>
+            <label>Output directory (relative to Shopware project root)</label>
+            <label lang="de-DE">Ausgabeverzeichnis (relativ zum Projekt-Stamm)</label>
+            <defaultValue>var/files/xrechnung</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>kositEnabled</name>
+            <label>Run KoSIT Schematron validation after XSD pass</label>
+            <label lang="de-DE">KoSIT-Schematron-Pruefung nach XSD-Pruefung ausfuehren</label>
+            <defaultValue>false</defaultValue>
+            <helpText>Requires the vineethkrishnan/xrechnung-kit-kosit-bundle package and Java 17+ on the host.</helpText>
+            <helpText lang="de-DE">Erfordert das Paket vineethkrishnan/xrechnung-kit-kosit-bundle und Java 17+ auf dem Host.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Operator notifications</title>
+        <title lang="de-DE">Betreiberbenachrichtigungen</title>
+
+        <input-field type="bool">
+            <name>notifyAdminOnInvalid</name>
+            <label>Post to the Shopware admin notification center on invalid output</label>
+            <label lang="de-DE">Bei ungueltiger Ausgabe Benachrichtigung im Shopware-Admin anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>slackWebhookUrl</name>
+            <label>Slack webhook URL (optional)</label>
+            <label lang="de-DE">Slack-Webhook-URL (optional)</label>
+            <placeholder>https://hooks.slack.com/services/...</placeholder>
+        </input-field>
+    </card>
+</config>

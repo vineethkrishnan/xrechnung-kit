@@ -7,8 +7,20 @@
     <services>
         <defaults autowire="true" autoconfigure="true" public="false"/>
 
+        <!-- DAL definition -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceDefinition">
+            <tag name="shopware.entity.definition" entity="xrechnung_kit_invoice"/>
+        </service>
+
+        <!-- Core kit services -->
         <service id="XrechnungKit\XRechnungValidator" public="true"/>
 
+        <!-- Plugin lifecycle: custom field set installer -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Service\CustomFieldSetInstaller" public="true">
+            <argument type="service" id="custom_field_set.repository"/>
+        </service>
+
+        <!-- Plugin orchestrator -->
         <service id="Vineethkrishnan\XrechnungKitShopware\Service\XrechnungService" public="true">
             <argument type="service" id="XrechnungKit\XRechnungValidator"/>
             <argument type="service" id="logger"/>
