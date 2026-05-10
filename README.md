@@ -106,6 +106,12 @@ No telemetry. No analytics. No runtime network calls during XML generation. KoSI
 
 Disclosure via GitHub private vulnerability reporting on this repository, or by email to `me@vineethnk.in`. Embargo policy and response timeline in [SECURITY.md](SECURITY.md).
 
+## Repository layout
+
+This monorepo holds the framework-agnostic core under `core/`, the optional KoSIT bundle under `kosit-bundle/`, framework adapters under `adapters/`, and shared mappers under `mappers/`. Each subtree carries its own `composer.json` so it can be published as a standalone Packagist package.
+
+`core/` is auto-mirrored to [`vineethkrishnan/xrechnung-kit-core`](https://github.com/vineethkrishnan/xrechnung-kit-core) on every push to `main` and on every `v*.*.*` tag, via `splitsh-lite` and the `.github/workflows/split-and-publish.yml` workflow. Packagist resolves `vineethkrishnan/xrechnung-kit-core` against that mirror. Do not open PRs against the mirror; all development happens here.
+
 ## Contributing
 
 Bug reports, feature requests, and PRs are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR. Code of conduct in [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

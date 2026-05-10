@@ -1,0 +1,109 @@
+name: Split and publish core to Packagist
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  workflow_dispatch:
+
+concurrency:
+  group: split-publish-core
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  split-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      SPLITSH_VERSION: v1.0.1
+      MIRROR_OWNER: vineethkrishnan
+      MIRROR_REPO: xrechnung-kit-core
+      SUBTREE_PREFIX: core
+    steps:
+      - name: Checkout monorepo with full history and tags
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Cache splitsh-lite binary
+        id: cache-splitsh-bin
+        uses: actions/cache@v5
+        with:
+          path: /tmp/splitsh
+          key: splitsh-lite-${{ env.SPLITSH_VERSION }}-linux-amd64
+
+      - name: Install splitsh-lite
+        if: steps.cache-splitsh-bin.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/splitsh
+          curl -fsSL "https://github.com/splitsh/lite/releases/download/${SPLITSH_VERSION}/lite_linux_amd64.tar.gz" \
+            | tar -xz -C /tmp/splitsh
+          chmod +x /tmp/splitsh/splitsh-lite
+
+      - name: Cache splitsh state
+        uses: actions/cache@v5
+        with:
+          path: .git/splitsh.db
+          key: splitsh-state-${{ env.SUBTREE_PREFIX }}-${{ github.sha }}
+          restore-keys: |
+            splitsh-state-${{ env.SUBTREE_PREFIX }}-
+
+      - name: Split main
+        id: split-main
+        run: |
+          set -euo pipefail
+          MAIN_SHA=$(/tmp/splitsh/splitsh-lite \
+            --prefix="${SUBTREE_PREFIX}/" \
+            --origin=refs/heads/main \
+            --target=refs/heads/_split/main)
+          if [ -z "${MAIN_SHA}" ]; then
+            echo "splitsh-lite produced no commit for main; aborting." >&2
+            exit 1
+          fi
+          echo "sha=${MAIN_SHA}" >> "$GITHUB_OUTPUT"
+          echo "main -> ${MAIN_SHA}"
+
+      - name: Split release tags
+        run: |
+          set -euo pipefail
+          : > /tmp/tag-pushes.txt
+          for TAG in $(git tag --list 'v*.*.*' --sort=v:refname); do
+            TAG_SHA=$(/tmp/splitsh/splitsh-lite \
+              --prefix="${SUBTREE_PREFIX}/" \
+              --origin="refs/tags/${TAG}" \
+              --target="refs/heads/_split/tag/${TAG}" || true)
+            if [ -n "${TAG_SHA:-}" ]; then
+              echo "${TAG_SHA} refs/tags/${TAG}" >> /tmp/tag-pushes.txt
+              echo "${TAG} -> ${TAG_SHA}"
+            else
+              echo "${TAG} -> skipped (no commits under ${SUBTREE_PREFIX}/)"
+            fi
+          done
+
+      - name: Push split history to mirror
+        env:
+          SPLIT_PUSH_TOKEN: ${{ secrets.SPLIT_PUSH_TOKEN }}
+          MAIN_SHA: ${{ steps.split-main.outputs.sha }}
+        run: |
+          set -euo pipefail
+          MIRROR_URL="https://x-access-token:${SPLIT_PUSH_TOKEN}@github.com/${MIRROR_OWNER}/${MIRROR_REPO}.git"
+          git push --force "${MIRROR_URL}" "${MAIN_SHA}:refs/heads/main"
+          if [ -s /tmp/tag-pushes.txt ]; then
+            while read -r SHA REF; do
+              git push --force "${MIRROR_URL}" "${SHA}:${REF}"
+            done < /tmp/tag-pushes.txt
+          fi
+
+      - name: Notify Packagist
+        env:
+          PACKAGIST_API_TOKEN: ${{ secrets.PACKAGIST_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl -fsSL -XPOST \
+            -H 'content-type:application/json' \
+            "https://packagist.org/api/update-package?username=${MIRROR_OWNER}&apiToken=${PACKAGIST_API_TOKEN}" \
+            -d "{\"repository\":{\"url\":\"https://github.com/${MIRROR_OWNER}/${MIRROR_REPO}\"}}"
