@@ -15,6 +15,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceDefinition;
 use Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceEntity;
 use Vineethkrishnan\XrechnungKitShopware\Notification\AdminAlerter;
+use Vineethkrishnan\XrechnungKitShopware\Peppol\PeppolDeliveryService;
 use XrechnungKit\Mapping\MappingData;
 
 /**
@@ -47,6 +48,7 @@ final class GenerationOrchestrator
         private readonly PluginConfig $config,
         private readonly LoggerInterface $logger,
         private readonly AdminAlerter $alerter,
+        private readonly PeppolDeliveryService $peppolDelivery,
         private readonly string $projectDir,
     ) {
     }
@@ -102,24 +104,28 @@ final class GenerationOrchestrator
             );
 
             $this->xrechnungInvoiceRepository->upsert([
-                [
-                    'id' => $invoiceId,
-                    'orderId' => $order->getId(),
-                    'orderVersionId' => $order->getVersionId() ?? Defaults::LIVE_VERSION,
-                    'status' => $result->status,
-                    'generatedPath' => $result->path,
-                    'errors' => $result->errors === [] ? null : $result->errors,
-                    'generatedAt' => $result->generatedAt,
-                    'mappingSnapshot' => $this->snapshotMapping($mapping),
-                    'validatorVersion' => $result->validatorVersion,
-                    'kositResult' => $result->kositResult,
-                    'triggeredVia' => $triggeredVia,
-                    'triggeredBy' => $triggeredBy,
-                    'attemptCount' => $attemptCount,
-                ],
+                array_merge(
+                    [
+                        'id' => $invoiceId,
+                        'orderId' => $order->getId(),
+                        'orderVersionId' => $order->getVersionId() ?? Defaults::LIVE_VERSION,
+                        'status' => $result->status,
+                        'generatedPath' => $result->path,
+                        'errors' => $result->errors === [] ? null : $result->errors,
+                        'generatedAt' => $result->generatedAt,
+                        'mappingSnapshot' => $this->snapshotMapping($mapping),
+                        'validatorVersion' => $result->validatorVersion,
+                        'kositResult' => $result->kositResult,
+                        'triggeredVia' => $triggeredVia,
+                        'triggeredBy' => $triggeredBy,
+                        'attemptCount' => $attemptCount,
+                    ],
+                    $existing === null ? ['deliveryStatus' => XrechnungInvoiceDefinition::DELIVERY_PENDING] : [],
+                ),
             ], $context);
 
             $this->alertIfQuarantine($invoiceId, $context, $salesChannelId);
+            $this->autoDeliverIfEnabled($invoiceId, $context, $salesChannelId);
         } catch (\Throwable $e) {
             $this->logger->error('xrechnung-kit-shopware: generation failed', [
                 'orderId' => $orderId,
@@ -150,6 +156,22 @@ final class GenerationOrchestrator
             return;
         }
         $this->alerter->notifyInvalid($invoice, $salesChannelId);
+    }
+
+    private function autoDeliverIfEnabled(string $invoiceId, Context $context, ?string $salesChannelId): void
+    {
+        if (!$this->config->isPeppolAutoDeliverEnabled($salesChannelId)) {
+            return;
+        }
+        try {
+            $this->peppolDelivery->deliver($invoiceId, $context);
+        } catch (\Throwable $e) {
+            $this->logger->warning('xrechnung-kit-shopware: peppol auto-deliver swallowed exception', [
+                'invoiceId' => $invoiceId,
+                'exception' => $e::class,
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
     private function loadOrder(string $orderId, Context $context): OrderEntity
@@ -223,22 +245,27 @@ final class GenerationOrchestrator
         ?array $partialSnapshot,
         Context $context,
     ): void {
+        $existing = $this->xrechnungInvoiceRepository->search(new Criteria([$invoiceId]), $context)->first();
+
         $this->xrechnungInvoiceRepository->upsert([
-            [
-                'id' => $invoiceId,
-                'orderId' => $orderId,
-                'orderVersionId' => $orderVersionId,
-                'status' => XrechnungInvoiceDefinition::STATUS_FAILED,
-                'generatedPath' => null,
-                'errors' => [$error::class . ': ' . $error->getMessage()],
-                'generatedAt' => new \DateTimeImmutable(),
-                'mappingSnapshot' => $partialSnapshot,
-                'validatorVersion' => null,
-                'kositResult' => XrechnungInvoiceDefinition::KOSIT_SKIPPED,
-                'triggeredVia' => $triggeredVia,
-                'triggeredBy' => $triggeredBy,
-                'attemptCount' => $attemptCount,
-            ],
+            array_merge(
+                [
+                    'id' => $invoiceId,
+                    'orderId' => $orderId,
+                    'orderVersionId' => $orderVersionId,
+                    'status' => XrechnungInvoiceDefinition::STATUS_FAILED,
+                    'generatedPath' => null,
+                    'errors' => [$error::class . ': ' . $error->getMessage()],
+                    'generatedAt' => new \DateTimeImmutable(),
+                    'mappingSnapshot' => $partialSnapshot,
+                    'validatorVersion' => null,
+                    'kositResult' => XrechnungInvoiceDefinition::KOSIT_SKIPPED,
+                    'triggeredVia' => $triggeredVia,
+                    'triggeredBy' => $triggeredBy,
+                    'attemptCount' => $attemptCount,
+                ],
+                $existing === null ? ['deliveryStatus' => XrechnungInvoiceDefinition::DELIVERY_PENDING] : [],
+            ),
         ], $context);
     }
 }

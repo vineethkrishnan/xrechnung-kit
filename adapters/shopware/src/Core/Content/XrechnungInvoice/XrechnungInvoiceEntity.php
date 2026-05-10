@@ -38,6 +38,15 @@ class XrechnungInvoiceEntity extends Entity
 
     protected int $attemptCount = 1;
 
+    protected string $deliveryStatus = 'pending';
+
+    protected ?\DateTimeInterface $deliveryAttemptedAt = null;
+
+    /** @var array<string, mixed>|null */
+    protected ?array $deliveryResponse = null;
+
+    protected ?string $deliveryError = null;
+
     protected ?OrderEntity $order = null;
 
     public function getOrderId(): string
@@ -162,6 +171,48 @@ class XrechnungInvoiceEntity extends Entity
     public function setAttemptCount(int $attemptCount): void
     {
         $this->attemptCount = $attemptCount;
+    }
+
+    public function getDeliveryStatus(): string
+    {
+        return $this->deliveryStatus;
+    }
+
+    public function setDeliveryStatus(string $deliveryStatus): void
+    {
+        $this->deliveryStatus = $deliveryStatus;
+    }
+
+    public function getDeliveryAttemptedAt(): ?\DateTimeInterface
+    {
+        return $this->deliveryAttemptedAt;
+    }
+
+    public function setDeliveryAttemptedAt(?\DateTimeInterface $deliveryAttemptedAt): void
+    {
+        $this->deliveryAttemptedAt = $deliveryAttemptedAt;
+    }
+
+    /** @return array<string, mixed>|null */
+    public function getDeliveryResponse(): ?array
+    {
+        return $this->deliveryResponse;
+    }
+
+    /** @param array<string, mixed>|null $deliveryResponse */
+    public function setDeliveryResponse(?array $deliveryResponse): void
+    {
+        $this->deliveryResponse = $deliveryResponse;
+    }
+
+    public function getDeliveryError(): ?string
+    {
+        return $this->deliveryError;
+    }
+
+    public function setDeliveryError(?string $deliveryError): void
+    {
+        $this->deliveryError = $deliveryError;
     }
 
     public function getOrder(): ?OrderEntity

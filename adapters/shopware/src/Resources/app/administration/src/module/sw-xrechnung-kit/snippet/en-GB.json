@@ -9,6 +9,7 @@
             "statusCardTitle": "Status",
             "fileCardTitle": "Generated file",
             "auditCardTitle": "Audit",
+            "deliveryCardTitle": "PEPPOL delivery",
             "errorsCardTitle": "Validation errors",
             "field": {
                 "status": "Status",
@@ -40,7 +41,21 @@
             },
             "action": {
                 "download": "Download XML",
-                "regenerate": "Regenerate"
+                "regenerate": "Regenerate",
+                "sendPeppol": "Send to PEPPOL"
+            },
+            "delivery": {
+                "field": {
+                    "status": "Delivery status",
+                    "attemptedAt": "Last attempt",
+                    "error": "Error"
+                },
+                "status": {
+                    "pending": "Pending",
+                    "sent": "Sent",
+                    "failed": "Failed",
+                    "skipped": "Skipped"
+                }
             },
             "empty": {
                 "title": "No XRechnung yet",
@@ -48,7 +63,10 @@
             },
             "notification": {
                 "regenerateSuccess": "XRechnung has been regenerated.",
-                "regenerateError": "Regeneration failed."
+                "regenerateError": "Regeneration failed.",
+                "peppolSent": "Sent to PEPPOL.",
+                "peppolSkipped": "PEPPOL delivery skipped.",
+                "peppolError": "PEPPOL delivery failed."
             }
         },
         "quarantine": {

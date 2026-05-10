@@ -36,6 +36,11 @@ class XrechnungInvoiceDefinition extends EntityDefinition
     public const TRIGGER_SCHEDULED_RETRY = 'scheduled_retry';
     public const TRIGGER_API = 'api';
 
+    public const DELIVERY_PENDING = 'pending';
+    public const DELIVERY_SENT = 'sent';
+    public const DELIVERY_FAILED = 'failed';
+    public const DELIVERY_SKIPPED = 'skipped';
+
     public function getEntityName(): string
     {
         return self::ENTITY_NAME;
@@ -69,6 +74,11 @@ class XrechnungInvoiceDefinition extends EntityDefinition
             (new StringField('triggered_via', 'triggeredVia', 32))->addFlags(new Required()),
             new StringField('triggered_by', 'triggeredBy', 36),
             (new IntField('attempt_count', 'attemptCount'))->addFlags(new Required()),
+
+            (new StringField('delivery_status', 'deliveryStatus', 32))->addFlags(new Required()),
+            new DateTimeField('delivery_attempted_at', 'deliveryAttemptedAt'),
+            new JsonField('delivery_response', 'deliveryResponse'),
+            new StringField('delivery_error', 'deliveryError', 2048),
 
             new ManyToOneAssociationField('order', 'order_id', OrderDefinition::class, 'id'),
         ]);

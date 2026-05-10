@@ -191,4 +191,53 @@
             <placeholder>https://hooks.slack.com/services/...</placeholder>
         </input-field>
     </card>
+
+    <card>
+        <title>PEPPOL delivery</title>
+        <title lang="de-DE">PEPPOL-Versand</title>
+
+        <input-field type="bool">
+            <name>peppolEnabled</name>
+            <label>Enable PEPPOL delivery</label>
+            <label lang="de-DE">PEPPOL-Versand aktivieren</label>
+            <defaultValue>false</defaultValue>
+            <helpText>When enabled, generated XRechnungen with a recipient PEPPOL endpoint id can be sent to the configured Access Point. xrechnung-kit is vendor-neutral; you provide the AP endpoint via webhook.</helpText>
+            <helpText lang="de-DE">Wenn aktiviert, koennen erzeugte XRechnungen mit einer Empfaenger-PEPPOL-ID an den konfigurierten Access Point gesendet werden. xrechnung-kit ist anbieterunabhaengig; Sie konfigurieren den AP-Endpunkt per Webhook.</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>peppolAutoDeliver</name>
+            <label>Auto-deliver after successful generation</label>
+            <label lang="de-DE">Automatisch versenden nach erfolgreicher Erzeugung</label>
+            <defaultValue>false</defaultValue>
+            <helpText>When off, delivery is manual via the Send to PEPPOL button on the order detail XRechnung tab.</helpText>
+            <helpText lang="de-DE">Wenn aus, erfolgt der Versand manuell ueber die Schaltflaeche "An PEPPOL senden" im Bestelldetail.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>peppolSenderId</name>
+            <label>Sender PEPPOL participant id</label>
+            <label lang="de-DE">Absender PEPPOL-Teilnehmer-ID</label>
+            <placeholder>0204:DE123456789</placeholder>
+            <helpText>Format: scheme:identifier. Example: 0204 (Leitweg-ID), 9930 (German VAT).</helpText>
+            <helpText lang="de-DE">Format: Schema:Kennung. Beispiel: 0204 (Leitweg-ID), 9930 (deutsche USt-IdNr.).</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>peppolWebhookUrl</name>
+            <label>Access Point webhook URL</label>
+            <label lang="de-DE">Access-Point-Webhook-URL</label>
+            <placeholder>https://ap.example.com/inbound</placeholder>
+            <helpText>The endpoint that receives the JSON payload (envelope + base64 XML) and forwards it onto PEPPOL on your behalf. Required when PEPPOL delivery is enabled.</helpText>
+            <helpText lang="de-DE">Der Endpunkt, der den JSON-Payload (Envelope + Base64-XML) entgegennimmt und stellvertretend an PEPPOL weiterleitet. Erforderlich bei aktivem PEPPOL-Versand.</helpText>
+        </input-field>
+
+        <input-field type="password">
+            <name>peppolWebhookBearerToken</name>
+            <label>Webhook bearer token (optional)</label>
+            <label lang="de-DE">Webhook-Bearer-Token (optional)</label>
+            <helpText>If set, sent in the Authorization header as Bearer ...</helpText>
+            <helpText lang="de-DE">Falls gesetzt, wird der Wert im Authorization-Header als Bearer ... gesendet.</helpText>
+        </input-field>
+    </card>
 </config>

@@ -124,6 +124,34 @@ final class PluginConfig
         return $value === '' ? null : $value;
     }
 
+    public function isPeppolEnabled(?string $salesChannelId = null): bool
+    {
+        return $this->getBool('peppolEnabled', $salesChannelId, false);
+    }
+
+    public function isPeppolAutoDeliverEnabled(?string $salesChannelId = null): bool
+    {
+        return $this->getBool('peppolAutoDeliver', $salesChannelId, false);
+    }
+
+    public function getPeppolSenderId(?string $salesChannelId = null): ?string
+    {
+        $value = $this->getString('peppolSenderId', $salesChannelId);
+        return $value === '' ? null : $value;
+    }
+
+    public function getPeppolWebhookUrl(?string $salesChannelId = null): ?string
+    {
+        $value = $this->getString('peppolWebhookUrl', $salesChannelId);
+        return $value === '' ? null : $value;
+    }
+
+    public function getPeppolWebhookBearerToken(?string $salesChannelId = null): ?string
+    {
+        $value = $this->getString('peppolWebhookBearerToken', $salesChannelId);
+        return $value === '' ? null : $value;
+    }
+
     private function getString(string $key, ?string $salesChannelId, string $default = ''): string
     {
         $value = $this->config->get(self::NS . '.' . $key, $salesChannelId);

@@ -9,6 +9,7 @@
             "statusCardTitle": "Status",
             "fileCardTitle": "Erzeugte Datei",
             "auditCardTitle": "Audit",
+            "deliveryCardTitle": "PEPPOL-Versand",
             "errorsCardTitle": "Validierungsfehler",
             "field": {
                 "status": "Status",
@@ -40,7 +41,21 @@
             },
             "action": {
                 "download": "XML herunterladen",
-                "regenerate": "Neu erzeugen"
+                "regenerate": "Neu erzeugen",
+                "sendPeppol": "An PEPPOL senden"
+            },
+            "delivery": {
+                "field": {
+                    "status": "Versandstatus",
+                    "attemptedAt": "Letzter Versuch",
+                    "error": "Fehler"
+                },
+                "status": {
+                    "pending": "Ausstehend",
+                    "sent": "Gesendet",
+                    "failed": "Fehlgeschlagen",
+                    "skipped": "Uebersprungen"
+                }
             },
             "empty": {
                 "title": "Keine XRechnung erzeugt",
@@ -48,7 +63,10 @@
             },
             "notification": {
                 "regenerateSuccess": "XRechnung wurde neu erzeugt.",
-                "regenerateError": "Neu-Erzeugung fehlgeschlagen."
+                "regenerateError": "Neu-Erzeugung fehlgeschlagen.",
+                "peppolSent": "An PEPPOL gesendet.",
+                "peppolSkipped": "PEPPOL-Versand uebersprungen.",
+                "peppolError": "PEPPOL-Versand fehlgeschlagen."
             }
         },
         "quarantine": {

@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Attribute\Route;
 use Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceDefinition;
 use Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceEntity;
+use Vineethkrishnan\XrechnungKitShopware\Peppol\PeppolDeliveryService;
 use Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator;
 
 /**
@@ -38,6 +39,7 @@ final class XrechnungController
     public function __construct(
         private readonly EntityRepository $xrechnungInvoiceRepository,
         private readonly GenerationOrchestrator $orchestrator,
+        private readonly PeppolDeliveryService $peppolDelivery,
     ) {
     }
 
@@ -116,6 +118,33 @@ final class XrechnungController
             'attemptCount' => $invoice->getAttemptCount(),
             'triggeredVia' => $invoice->getTriggeredVia(),
             'triggeredBy' => $invoice->getTriggeredBy(),
+        ]);
+    }
+
+    #[Route(
+        path: '/api/_action/xrechnung-kit/peppol/{invoiceId}',
+        name: 'api.action.xrechnung-kit.peppol-send',
+        defaults: [
+            '_acl' => ['xrechnung_kit_invoice:update'],
+        ],
+        methods: ['POST']
+    )]
+    public function sendPeppol(string $invoiceId, Context $context): JsonResponse
+    {
+        $attempted = $this->peppolDelivery->deliver($invoiceId, $context);
+
+        $invoice = $this->xrechnungInvoiceRepository->search(new Criteria([$invoiceId]), $context)->first();
+        if (!$invoice instanceof XrechnungInvoiceEntity) {
+            return new JsonResponse(['error' => 'XRechnung invoice not found.'], 404);
+        }
+
+        return new JsonResponse([
+            'id' => $invoice->getId(),
+            'attempted' => $attempted,
+            'deliveryStatus' => $invoice->getDeliveryStatus(),
+            'deliveryAttemptedAt' => $invoice->getDeliveryAttemptedAt()?->format(\DateTimeInterface::ATOM),
+            'deliveryError' => $invoice->getDeliveryError(),
+            'deliveryResponse' => $invoice->getDeliveryResponse(),
         ]);
     }
 }

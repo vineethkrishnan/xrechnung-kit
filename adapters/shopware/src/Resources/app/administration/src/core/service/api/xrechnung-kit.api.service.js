@@ -44,6 +44,19 @@ class XrechnungKitApiService extends ApiService {
             .post(`_action/${this.getApiBasePath()}/regenerate/${orderId}`, null, { headers })
             .then((response) => response.data);
     }
+
+    /**
+     * Triggers a PEPPOL delivery attempt for an existing invoice id.
+     * Resolves with the delivery outcome (deliveryStatus,
+     * deliveryAttemptedAt, deliveryError, deliveryResponse).
+     */
+    sendPeppol(invoiceId) {
+        const headers = this.getBasicHeaders();
+
+        return this.httpClient
+            .post(`_action/${this.getApiBasePath()}/peppol/${invoiceId}`, null, { headers })
+            .then((response) => response.data);
+    }
 }
 
 Application.addServiceProvider('XrechnungKitApiService', (container) => {

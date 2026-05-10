@@ -71,6 +71,42 @@
         </sw-card>
         {% endblock %}
 
+        {% block sw_order_detail_xrechnung_delivery_card %}
+        <sw-card
+            :title="$tc('sw-xrechnung-kit.detail.deliveryCardTitle')"
+            class="sw-order-detail-xrechnung__delivery-card"
+        >
+            <sw-container columns="1fr 1fr" gap="20px">
+                <sw-description-list>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.delivery.field.status') }}</dt>
+                    <dd>
+                        <sw-label :variant="deliveryStatusVariant">{{ deliveryStatusLabel }}</sw-label>
+                    </dd>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.delivery.field.attemptedAt') }}</dt>
+                    <dd>{{ deliveryAttemptedAtDisplay }}</dd>
+                </sw-description-list>
+                <sw-description-list>
+                    <dt>{{ $tc('sw-xrechnung-kit.detail.delivery.field.error') }}</dt>
+                    <dd>
+                        <span v-if="invoice.deliveryError" class="sw-order-detail-xrechnung__delivery-error">{{ invoice.deliveryError }}</span>
+                        <span v-else>-</span>
+                    </dd>
+                </sw-description-list>
+            </sw-container>
+
+            <div class="sw-order-detail-xrechnung__actions">
+                <sw-button
+                    variant="primary"
+                    :disabled="!canSendPeppol || isSendingPeppol"
+                    :is-loading="isSendingPeppol"
+                    @click="sendPeppol"
+                >
+                    {{ $tc('sw-xrechnung-kit.detail.action.sendPeppol') }}
+                </sw-button>
+            </div>
+        </sw-card>
+        {% endblock %}
+
         {% block sw_order_detail_xrechnung_audit_card %}
         <sw-card
             :title="$tc('sw-xrechnung-kit.detail.auditCardTitle')"

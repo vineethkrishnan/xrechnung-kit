@@ -35,6 +35,7 @@ Component.register('sw-order-detail-xrechnung', {
             isLoading: true,
             isDownloading: false,
             isRegenerating: false,
+            isSendingPeppol: false,
         };
     },
 
@@ -91,6 +92,41 @@ Component.register('sw-order-detail-xrechnung', {
                 minute: '2-digit',
                 second: '2-digit',
             });
+        },
+
+        deliveryAttemptedAtDisplay() {
+            if (!this.invoice || !this.invoice.deliveryAttemptedAt) {
+                return '-';
+            }
+            return Shopware.Utils.format.date(this.invoice.deliveryAttemptedAt, {
+                year: 'numeric',
+                month: 'short',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+            });
+        },
+
+        deliveryStatusVariant() {
+            const map = {
+                sent: 'success',
+                pending: 'neutral',
+                skipped: 'neutral',
+                failed: 'danger',
+            };
+            return map[this.invoice && this.invoice.deliveryStatus] || 'neutral';
+        },
+
+        deliveryStatusLabel() {
+            const status = (this.invoice && this.invoice.deliveryStatus) || 'pending';
+            return this.$tc('sw-xrechnung-kit.detail.delivery.status.' + status);
+        },
+
+        canSendPeppol() {
+            if (!this.invoice || !this.invoice.id) {
+                return false;
+            }
+            return this.invoice.status === 'generated';
         },
     },
 
@@ -162,6 +198,38 @@ Component.register('sw-order-detail-xrechnung', {
                 });
             } finally {
                 this.isRegenerating = false;
+            }
+        },
+
+        async sendPeppol() {
+            if (!this.canSendPeppol || this.isSendingPeppol || !this.invoice) {
+                return;
+            }
+            this.isSendingPeppol = true;
+            try {
+                const result = await this.XrechnungKitApiService.sendPeppol(this.invoice.id);
+                await this.loadInvoice();
+                if (result && result.deliveryStatus === 'sent') {
+                    this.createNotificationSuccess({
+                        message: this.$tc('sw-xrechnung-kit.detail.notification.peppolSent'),
+                    });
+                } else if (result && result.deliveryStatus === 'skipped') {
+                    this.createNotificationWarning({
+                        message: result.deliveryError || this.$tc('sw-xrechnung-kit.detail.notification.peppolSkipped'),
+                    });
+                } else {
+                    this.createNotificationError({
+                        message: result && result.deliveryError
+                            ? result.deliveryError
+                            : this.$tc('sw-xrechnung-kit.detail.notification.peppolError'),
+                    });
+                }
+            } catch (err) {
+                this.createNotificationError({
+                    message: err.message || this.$tc('sw-xrechnung-kit.detail.notification.peppolError'),
+                });
+            } finally {
+                this.isSendingPeppol = false;
             }
         },
     },

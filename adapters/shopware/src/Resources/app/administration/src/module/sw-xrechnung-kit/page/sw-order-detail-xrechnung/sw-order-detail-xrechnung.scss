@@ -6,8 +6,17 @@
 
     &__status-card,
     &__file-card,
-    &__errors-card {
+    &__errors-card,
+    &__audit-card,
+    &__delivery-card {
         margin-bottom: 24px;
+    }
+
+    &__delivery-error {
+        font-family: var(--font-family-monospace, monospace);
+        font-size: 0.85em;
+        color: var(--color-crimson-700, #8a1c1c);
+        word-break: break-word;
     }
 
     &__file-card {

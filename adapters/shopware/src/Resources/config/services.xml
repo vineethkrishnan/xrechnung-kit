@@ -48,6 +48,22 @@
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
         </service>
 
+        <!-- PEPPOL delivery: providers + orchestrator -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Peppol\WebhookPeppolDelivery">
+            <argument type="service" id="http_client"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
+            <argument type="service" id="logger"/>
+            <tag name="xrechnung_kit_shopware.peppol_delivery"/>
+        </service>
+
+        <service id="Vineethkrishnan\XrechnungKitShopware\Peppol\PeppolDeliveryService" public="true">
+            <argument type="tagged_iterator" tag="xrechnung_kit_shopware.peppol_delivery"/>
+            <argument type="service" id="xrechnung_kit_invoice.repository"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
+            <argument type="service" id="logger"/>
+        </service>
+
         <!-- Generation orchestrator: shared logic for subscriber, controller, scheduled task -->
         <service id="Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator" public="true">
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\OrderToMappingData"/>
@@ -57,6 +73,7 @@
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
             <argument type="service" id="logger"/>
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Notification\AdminAlerter"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Peppol\PeppolDeliveryService"/>
             <argument>%kernel.project_dir%</argument>
         </service>
 
@@ -82,10 +99,11 @@
             <tag name="messenger.message_handler"/>
         </service>
 
-        <!-- Admin-only download + regenerate controller -->
+        <!-- Admin-only download + regenerate + peppol controller -->
         <service id="Vineethkrishnan\XrechnungKitShopware\Controller\Admin\XrechnungController" public="true">
             <argument type="service" id="xrechnung_kit_invoice.repository"/>
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Peppol\PeppolDeliveryService"/>
         </service>
     </services>
 </container>
