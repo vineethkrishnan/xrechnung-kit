@@ -31,6 +31,12 @@ Optional KoSIT Schematron validation:
 composer require --dev vineethkrishnan/xrechnung-kit-kosit-bundle
 ```
 
+Optional PDF/A-3 hybrid invoice support:
+
+```bash
+composer require vineethkrishnan/xrechnung-kit-pdfa
+```
+
 Framework adapters:
 
 ```bash
@@ -96,6 +102,7 @@ Full documentation is available at [xrechnung-kit.vineethnk.in](https://xrechnun
 - Framework adapters: [Laravel](https://xrechnung-kit.vineethnk.in/frameworks/laravel), [Symfony](https://xrechnung-kit.vineethnk.in/frameworks/symfony), [CakePHP](https://xrechnung-kit.vineethnk.in/frameworks/cakephp), [Laminas](https://xrechnung-kit.vineethnk.in/frameworks/laminas)
 - Platform integrations: [TYPO3](https://xrechnung-kit.vineethnk.in/frameworks/typo3), [Shopware 6](https://xrechnung-kit.vineethnk.in/frameworks/shopware), [WordPress / WooCommerce](https://xrechnung-kit.vineethnk.in/frameworks/wordpress), [Contenido CMS](https://xrechnung-kit.vineethnk.in/frameworks/contenido)
 - [Extending xrechnung-kit](https://xrechnung-kit.vineethnk.in/extending) - custom mappers, channels, loggers, validators
+- [PDF/A-3 hybrid invoices](https://xrechnung-kit.vineethnk.in/embedding-pdfa) - via the optional `xrechnung-kit-pdfa` package
 - [API overview](https://xrechnung-kit.vineethnk.in/reference/api) and [generated API reference](https://xrechnung-kit.vineethnk.in/api/)
 - [Document type codes](https://xrechnung-kit.vineethnk.in/reference/document-types)
 - [Glossary of German XRechnung terms](https://xrechnung-kit.vineethnk.in/glossary-de)

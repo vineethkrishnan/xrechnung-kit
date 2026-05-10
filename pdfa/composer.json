@@ -1,0 +1,50 @@
+{
+    "name": "vineethkrishnan/xrechnung-kit-pdfa",
+    "description": "PDF/A-3 hybrid invoice support for xrechnung-kit. Embeds an XRechnung 3.0 XML inside a PDF/A-3 visual representation, producing a single hybrid file usable by humans and by KoSIT-strict validators.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["xrechnung", "en16931", "e-invoicing", "pdf-a", "pdfa3", "zugferd", "hybrid-invoice", "germany"],
+    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "support": {
+        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "docs": "https://xrechnung-kit.vineethnk.in/embedding-pdfa"
+    },
+    "authors": [
+        { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "ext-zlib": "*",
+        "vineethkrishnan/xrechnung-kit-core": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0"
+    },
+    "suggest": {
+        "mpdf/mpdf": "^8.2 - reference PDF/A-3 producer; the bundled MpdfPdfa3Embedder targets this version line.",
+        "setasign/fpdi": "^2.5 - alternative producer for callers that already render PDFs with FPDI."
+    },
+    "autoload": {
+        "psr-4": {
+            "XrechnungKit\\Pdfa\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "XrechnungKit\\Pdfa\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

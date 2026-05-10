@@ -87,6 +87,10 @@ export default defineConfig({
         link: '/extending',
       },
       {
+        text: 'PDF/A-3 hybrid',
+        link: '/embedding-pdfa',
+      },
+      {
         text: 'Reference',
         items: [
           { text: 'API overview', link: '/reference/api' },
@@ -145,6 +149,7 @@ export default defineConfig({
           text: 'Extending',
           items: [
             { text: 'Extending xrechnung-kit', link: '/extending' },
+            { text: 'PDF/A-3 hybrid invoices', link: '/embedding-pdfa' },
           ],
         },
         {
