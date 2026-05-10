@@ -2,19 +2,16 @@
 
 > EN 16931 / XRechnung 3.0 compliant e-invoice generator and validator for PHP. Framework-agnostic core with first-class adapters for Laravel, Symfony, CakePHP, and Laminas.
 
+[![Packagist](https://img.shields.io/packagist/v/vineethkrishnan/xrechnung-kit-core.svg)](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core)
+[![Tests](https://github.com/vineethkrishnan/xrechnung-kit/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/vineethkrishnan/xrechnung-kit/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-8892bf.svg)](https://www.php.net/supported-versions)
-[![Status](https://img.shields.io/badge/status-pre--alpha-orange.svg)](#status)
-
-## Status
-
-Pre-alpha. The repository is being scaffolded ahead of an extraction from a working production implementation. No tagged release yet. Watch the repo for the v0.1.0 announcement.
 
 ## What it does
 
 Turns a typed PHP value object describing an invoice into a KoSIT-strict valid XRechnung 3.0 / EN 16931 XML document. Validates the output in memory before writing to disk. Quarantines invalid output. Stays out of your way.
 
-Document classes supported at v1.0:
+Document classes supported:
 
 - Standard invoice (UNTDID 380)
 - Partial invoice / deposit / Anzahlung (UNTDID 326)
@@ -81,18 +78,18 @@ xrechnung-kit aims to fill the remaining gap: KoSIT-strict valid XRechnung 3.0 f
 
 ## Documentation
 
-Documentation lands under `docs/` as code is published. Initial entries planned:
-
-- `docs/getting-started.md`
-- `docs/mapping-data.md` - the canonical contract
-- `docs/kosit-validation.md` - local, Docker, and CI usage
-- `docs/frameworks/{laravel,symfony,cakephp,laminas}.md`
-- `docs/migrating-from-easybill.md`
-- `docs/glossary-de.md` - German XRechnung terms mapped to library concepts
+- [Getting started](docs/getting-started.md)
+- [MappingData: the canonical contract](docs/mapping-data.md)
+- [KoSIT Schematron validation: local, Docker, and CI](docs/kosit-validation.md)
+- Framework adapters: [Laravel](docs/frameworks/laravel.md), [Symfony](docs/frameworks/symfony.md), [CakePHP](docs/frameworks/cakephp.md), [Laminas](docs/frameworks/laminas.md)
+- [Migrating from easybill/xrechnung-php](docs/migrating-from-easybill.md)
+- [Glossary of German XRechnung terms](docs/glossary-de.md)
+- [Versioning and compatibility policies](docs/policies.md)
+- [Upgrading from 0.x to 1.0](docs/upgrading/0.x-to-1.0.md)
 
 ## Versioning
 
-Semantic versioning once v1.0.0 ships. Until then expect minor v0.x bumps to be breaking. After v1.0.0:
+Semantic versioning. The project's compatibility promises:
 
 - XML output is byte-stable within a patch release.
 - KoSIT scenarios may bump within a minor as long as pass/fail behaviour is preserved.
