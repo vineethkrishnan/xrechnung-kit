@@ -180,10 +180,15 @@ final class OrderToMappingData
             );
         }
 
+        $buyerVatId = $billing->getVatId();
+        $buyerTaxId = ($buyerVatId !== null && $buyerVatId !== '')
+            ? TaxId::vatId($buyerVatId)
+            : null;
+
         return Party::business(
             name: $name,
             address: $address,
-            taxId: TaxId::vatId($billing->getVatId() ?? ''),
+            taxId: $buyerTaxId,
             contact: $contact,
             endpointEmail: $endpointEmail,
         );

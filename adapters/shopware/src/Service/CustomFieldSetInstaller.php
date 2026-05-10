@@ -8,6 +8,7 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\CustomField\CustomFieldTypes;
 
 /**
@@ -37,7 +38,7 @@ final class CustomFieldSetInstaller
 
         $this->customFieldSetRepository->upsert([
             [
-                'id' => $existing ?? $this->generateId(),
+                'id' => $existing ?? Uuid::randomHex(),
                 'name' => self::SET_NAME,
                 'global' => true,
                 'config' => [
@@ -109,10 +110,5 @@ final class CustomFieldSetInstaller
         $first = $result->firstId();
 
         return is_string($first) ? $first : null;
-    }
-
-    private function generateId(): string
-    {
-        return bin2hex(random_bytes(16));
     }
 }
