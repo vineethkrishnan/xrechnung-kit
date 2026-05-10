@@ -15,7 +15,7 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'xrechnung-kit' }],
     ['meta', { property: 'og:site_name', content: 'xrechnung-kit' }],
-    ['meta', { property: 'og:url', content: 'https://xrechnung-kit.vineethnk.in/' }],
+    ['meta', { property: 'og:url', content: 'https://xrechnung-kit.vinelabs.de/' }],
     [
       'meta',
       {
