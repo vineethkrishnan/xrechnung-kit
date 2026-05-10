@@ -53,6 +53,13 @@
 
             <div class="sw-order-detail-xrechnung__actions">
                 <sw-button
+                    :disabled="isRegenerating || isLoading"
+                    :is-loading="isRegenerating"
+                    @click="regenerate"
+                >
+                    {{ $tc('sw-xrechnung-kit.detail.action.regenerate') }}
+                </sw-button>
+                <sw-button
                     variant="primary"
                     :disabled="!canDownload || isDownloading"
                     :is-loading="isDownloading"
@@ -61,6 +68,22 @@
                     {{ $tc('sw-xrechnung-kit.detail.action.download') }}
                 </sw-button>
             </div>
+        </sw-card>
+        {% endblock %}
+
+        {% block sw_order_detail_xrechnung_audit_card %}
+        <sw-card
+            :title="$tc('sw-xrechnung-kit.detail.auditCardTitle')"
+            class="sw-order-detail-xrechnung__audit-card"
+        >
+            <sw-description-list>
+                <dt>{{ $tc('sw-xrechnung-kit.detail.field.triggeredVia') }}</dt>
+                <dd>{{ $tc('sw-xrechnung-kit.detail.trigger.' + (invoice.triggeredVia || 'order_state')) }}</dd>
+                <dt>{{ $tc('sw-xrechnung-kit.detail.field.triggeredBy') }}</dt>
+                <dd>{{ invoice.triggeredBy || $tc('sw-xrechnung-kit.detail.field.triggeredBySystem') }}</dd>
+                <dt>{{ $tc('sw-xrechnung-kit.detail.field.attemptCount') }}</dt>
+                <dd>{{ invoice.attemptCount }}</dd>
+            </sw-description-list>
         </sw-card>
         {% endblock %}
 

@@ -1,0 +1,77 @@
+{% block sw_xrechnung_kit_quarantine_list %}
+<sw-page class="sw-xrechnung-kit-quarantine-list">
+
+    {% block sw_xrechnung_kit_quarantine_list_header %}
+    <template #smart-bar-header>
+        <h2>{{ $tc('sw-xrechnung-kit.quarantine.title') }}</h2>
+    </template>
+    {% endblock %}
+
+    {% block sw_xrechnung_kit_quarantine_list_actions %}
+    <template #smart-bar-actions>
+        <sw-button @click="getList" :is-loading="isLoading">
+            {{ $tc('sw-xrechnung-kit.quarantine.action.refresh') }}
+        </sw-button>
+    </template>
+    {% endblock %}
+
+    {% block sw_xrechnung_kit_quarantine_list_content %}
+    <template #content>
+        <sw-card-view>
+
+            {% block sw_xrechnung_kit_quarantine_list_grid %}
+            <sw-card :is-loading="isLoading">
+                <template v-if="!isLoading && invoices && invoices.length === 0">
+                    <sw-empty-state
+                        :title="$tc('sw-xrechnung-kit.quarantine.empty.title')"
+                        :subline="$tc('sw-xrechnung-kit.quarantine.empty.subline')"
+                        icon="regular-checkmark"
+                    ></sw-empty-state>
+                </template>
+
+                <template v-else-if="invoices && invoices.length > 0">
+                    <sw-data-grid
+                        :data-source="invoices"
+                        :columns="columns"
+                        :show-selection="false"
+                        :show-actions="false"
+                        :show-settings="false"
+                    >
+                        <template #column-status="{ item }">
+                            <sw-label :variant="statusVariantOf(item)">
+                                {{ $tc('sw-xrechnung-kit.detail.status.' + item.status) }}
+                            </sw-label>
+                        </template>
+
+                        <template #column-kositResult="{ item }">
+                            {{ $tc('sw-xrechnung-kit.detail.kosit.' + (item.kositResult || 'skipped')) }}
+                        </template>
+
+                        <template #column-triggeredVia="{ item }">
+                            {{ $tc('sw-xrechnung-kit.detail.trigger.' + (item.triggeredVia || 'order_state')) }}
+                        </template>
+
+                        <template #column-generatedAt="{ item }">
+                            {{ formatDate(item.generatedAt) }}
+                        </template>
+
+                        <template #column-order.orderNumber="{ item }">
+                            <router-link
+                                v-if="rowRoute(item)"
+                                :to="rowRoute(item)"
+                            >
+                                {{ item.order ? item.order.orderNumber : item.orderId }}
+                            </router-link>
+                            <span v-else>{{ item.orderId }}</span>
+                        </template>
+                    </sw-data-grid>
+                </template>
+            </sw-card>
+            {% endblock %}
+
+        </sw-card-view>
+    </template>
+    {% endblock %}
+
+</sw-page>
+{% endblock %}

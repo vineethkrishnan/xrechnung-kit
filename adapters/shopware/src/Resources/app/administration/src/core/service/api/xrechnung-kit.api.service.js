@@ -31,6 +31,19 @@ class XrechnungKitApiService extends ApiService {
             })
             .then((response) => response.data);
     }
+
+    /**
+     * Triggers a fresh generation for an order. Resolves with the
+     * updated invoice payload (id, status, errors, generatedPath,
+     * kositResult, attemptCount, triggeredVia, triggeredBy).
+     */
+    regenerate(orderId) {
+        const headers = this.getBasicHeaders();
+
+        return this.httpClient
+            .post(`_action/${this.getApiBasePath()}/regenerate/${orderId}`, null, { headers })
+            .then((response) => response.data);
+    }
 }
 
 Application.addServiceProvider('XrechnungKitApiService', (container) => {

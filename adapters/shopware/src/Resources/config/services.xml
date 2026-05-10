@@ -25,7 +25,7 @@
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
 
-        <!-- Plugin orchestrator -->
+        <!-- Plugin orchestrator: generates and validates -->
         <service id="Vineethkrishnan\XrechnungKitShopware\Service\XrechnungService" public="true">
             <argument type="service" id="XrechnungKit\XRechnungValidator"/>
             <argument type="service" id="logger"/>
@@ -36,21 +36,56 @@
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
         </service>
 
-        <!-- Order state subscriber that triggers generation -->
-        <service id="Vineethkrishnan\XrechnungKitShopware\Subscriber\OrderStateChangedSubscriber">
+        <!-- Notification channels: tagged so AdminAlerter receives them all -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Notification\ShopwareAdminChannel">
+            <argument type="service" id="Shopware\Core\Framework\Notification\NotificationService"/>
+            <argument type="service" id="logger"/>
+            <tag name="xrechnung_kit_shopware.notification_channel"/>
+        </service>
+
+        <service id="Vineethkrishnan\XrechnungKitShopware\Notification\AdminAlerter">
+            <argument type="tagged_iterator" tag="xrechnung_kit_shopware.notification_channel"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
+        </service>
+
+        <!-- Generation orchestrator: shared logic for subscriber, controller, scheduled task -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator" public="true">
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\OrderToMappingData"/>
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\XrechnungService"/>
             <argument type="service" id="order.repository"/>
             <argument type="service" id="xrechnung_kit_invoice.repository"/>
             <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
             <argument type="service" id="logger"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Notification\AdminAlerter"/>
             <argument>%kernel.project_dir%</argument>
+        </service>
+
+        <!-- Order state subscriber that triggers generation -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Subscriber\OrderStateChangedSubscriber">
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <!-- Admin-only download controller -->
+        <!-- Scheduled retry task -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\ScheduledTask\RetryFailedGenerationsTask">
+            <tag name="shopware.scheduled.task"/>
+        </service>
+
+        <service id="Vineethkrishnan\XrechnungKitShopware\ScheduledTask\RetryFailedGenerationsTaskHandler">
+            <argument type="service" id="scheduled_task.repository"/>
+            <argument type="service" id="logger"/>
+            <argument type="service" id="xrechnung_kit_invoice.repository"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator"/>
+            <argument type="service" id="logger"/>
+            <tag name="messenger.message_handler"/>
+        </service>
+
+        <!-- Admin-only download + regenerate controller -->
         <service id="Vineethkrishnan\XrechnungKitShopware\Controller\Admin\XrechnungController" public="true">
             <argument type="service" id="xrechnung_kit_invoice.repository"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator"/>
         </service>
     </services>
 </container>

@@ -1,0 +1,14 @@
+.sw-xrechnung-kit-quarantine-list {
+
+    .sw-data-grid {
+        a {
+            color: var(--color-darkgray-200);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+
+            &:hover {
+                color: var(--color-crimson-700, #8a1c1c);
+            }
+        }
+    }
+}

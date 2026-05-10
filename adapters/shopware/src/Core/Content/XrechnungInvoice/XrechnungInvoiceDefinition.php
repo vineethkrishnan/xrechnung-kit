@@ -11,6 +11,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\IntField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\JsonField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ReferenceVersionField;
@@ -29,6 +30,11 @@ class XrechnungInvoiceDefinition extends EntityDefinition
     public const KOSIT_PASS = 'pass';
     public const KOSIT_FAIL = 'fail';
     public const KOSIT_SKIPPED = 'skipped';
+
+    public const TRIGGER_ORDER_STATE = 'order_state';
+    public const TRIGGER_MANUAL = 'manual';
+    public const TRIGGER_SCHEDULED_RETRY = 'scheduled_retry';
+    public const TRIGGER_API = 'api';
 
     public function getEntityName(): string
     {
@@ -60,6 +66,9 @@ class XrechnungInvoiceDefinition extends EntityDefinition
             new JsonField('mapping_snapshot', 'mappingSnapshot'),
             new StringField('validator_version', 'validatorVersion', 64),
             new StringField('kosit_result', 'kositResult', 32),
+            (new StringField('triggered_via', 'triggeredVia', 32))->addFlags(new Required()),
+            new StringField('triggered_by', 'triggeredBy', 36),
+            (new IntField('attempt_count', 'attemptCount'))->addFlags(new Required()),
 
             new ManyToOneAssociationField('order', 'order_id', OrderDefinition::class, 'id'),
         ]);

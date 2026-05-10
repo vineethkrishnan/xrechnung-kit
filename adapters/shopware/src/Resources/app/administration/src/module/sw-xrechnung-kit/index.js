@@ -13,6 +13,7 @@
  */
 import './extension/sw-order-detail-base';
 import './page/sw-order-detail-xrechnung';
+import './page/sw-xrechnung-kit-quarantine-list';
 import './acl';
 
 import deDE from './snippet/de-DE.json';
@@ -32,6 +33,27 @@ Module.register('sw-xrechnung-kit', {
         'de-DE': deDE,
         'en-GB': enGB,
     },
+
+    routes: {
+        quarantine: {
+            component: 'sw-xrechnung-kit-quarantine-list',
+            path: 'quarantine',
+            meta: {
+                privilege: 'xrechnung_kit_invoice.viewer',
+            },
+        },
+    },
+
+    navigation: [
+        {
+            id: 'sw-xrechnung-kit-quarantine',
+            path: 'sw.xrechnung-kit.quarantine',
+            parent: 'sw-order',
+            label: 'sw-xrechnung-kit.quarantine.menuLabel',
+            position: 100,
+            privilege: 'xrechnung_kit_invoice.viewer',
+        },
+    ],
 });
 
 // Register the order-detail sub-route. Hooking into the existing

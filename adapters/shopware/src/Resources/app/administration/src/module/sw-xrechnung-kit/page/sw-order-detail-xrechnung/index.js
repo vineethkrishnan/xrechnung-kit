@@ -34,6 +34,7 @@ Component.register('sw-order-detail-xrechnung', {
             invoice: null,
             isLoading: true,
             isDownloading: false,
+            isRegenerating: false,
         };
     },
 
@@ -141,6 +142,26 @@ Component.register('sw-order-detail-xrechnung', {
                 });
             } finally {
                 this.isDownloading = false;
+            }
+        },
+
+        async regenerate() {
+            if (this.isRegenerating) {
+                return;
+            }
+            this.isRegenerating = true;
+            try {
+                await this.XrechnungKitApiService.regenerate(this.orderId);
+                await this.loadInvoice();
+                this.createNotificationSuccess({
+                    message: this.$tc('sw-xrechnung-kit.detail.notification.regenerateSuccess'),
+                });
+            } catch (err) {
+                this.createNotificationError({
+                    message: err.message || this.$tc('sw-xrechnung-kit.detail.notification.regenerateError'),
+                });
+            } finally {
+                this.isRegenerating = false;
             }
         },
     },

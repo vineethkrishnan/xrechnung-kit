@@ -8,13 +8,18 @@
             "tabTitle": "XRechnung",
             "statusCardTitle": "Status",
             "fileCardTitle": "Erzeugte Datei",
+            "auditCardTitle": "Audit",
             "errorsCardTitle": "Validierungsfehler",
             "field": {
                 "status": "Status",
                 "generatedAt": "Erzeugt am",
                 "validatorVersion": "Validator-Version",
                 "kositResult": "KoSIT-Pruefung",
-                "path": "Pfad"
+                "path": "Pfad",
+                "triggeredVia": "Ausgeloest durch",
+                "triggeredBy": "Ausloeser",
+                "triggeredBySystem": "System",
+                "attemptCount": "Versuche"
             },
             "status": {
                 "pending": "Ausstehend",
@@ -27,12 +32,42 @@
                 "fail": "Fehlgeschlagen",
                 "skipped": "Uebersprungen"
             },
+            "trigger": {
+                "order_state": "Bestellstatus",
+                "manual": "Manuell",
+                "scheduled_retry": "Geplanter Wiederholungsversuch",
+                "api": "API"
+            },
             "action": {
-                "download": "XML herunterladen"
+                "download": "XML herunterladen",
+                "regenerate": "Neu erzeugen"
             },
             "empty": {
                 "title": "Keine XRechnung erzeugt",
                 "subline": "Fuer diese Bestellung wurde noch keine XRechnung erzeugt."
+            },
+            "notification": {
+                "regenerateSuccess": "XRechnung wurde neu erzeugt.",
+                "regenerateError": "Neu-Erzeugung fehlgeschlagen."
+            }
+        },
+        "quarantine": {
+            "menuLabel": "XRechnung Quarantaene",
+            "title": "XRechnung Quarantaene",
+            "column": {
+                "orderNumber": "Bestellung",
+                "status": "Status",
+                "attempts": "Versuche",
+                "kositResult": "KoSIT",
+                "triggeredVia": "Ausgeloest durch",
+                "generatedAt": "Erzeugt am"
+            },
+            "action": {
+                "refresh": "Aktualisieren"
+            },
+            "empty": {
+                "title": "Keine XRechnungen in Quarantaene",
+                "subline": "Alle XRechnungen wurden erfolgreich erzeugt und validiert."
             }
         },
         "acl": {

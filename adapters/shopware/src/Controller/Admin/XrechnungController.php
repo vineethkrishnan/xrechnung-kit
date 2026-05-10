@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Vineethkrishnan\XrechnungKitShopware\Controller\Admin;
 
+use Shopware\Core\Framework\Api\Context\AdminApiSource;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -11,24 +12,32 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Attribute\Route;
+use Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceDefinition;
 use Vineethkrishnan\XrechnungKitShopware\Core\Content\XrechnungInvoice\XrechnungInvoiceEntity;
+use Vineethkrishnan\XrechnungKitShopware\Service\GenerationOrchestrator;
 
 /**
  * Admin-only HTTP endpoints used by the Shopware admin SPA.
  *
- * Listing and per-record reads are already available via the auto-generated
- * /api/xrechnung-kit-invoice DAL routes; this controller only adds the
- * download endpoint, which streams the xml from the filesystem rather
- * than from the DAL row.
+ * Listing and per-record reads use the auto-generated DAL routes at
+ * /api/xrechnung-kit-invoice. This controller handles the two actions
+ * the DAL routes cannot model:
  *
- * The xrechnung_kit_invoice entity respects standard ACL through the DAL,
- * so the admin permission for read access is xrechnung_kit_invoice:read.
+ *   GET  /api/_action/xrechnung-kit/download/{invoiceId}
+ *        Streams the generated XML from disk.
+ *
+ *   POST /api/_action/xrechnung-kit/regenerate/{orderId}
+ *        Triggers a fresh generation for an order. Used by the
+ *        "Regenerate now" button on the order detail XRechnung tab.
+ *
+ * Both endpoints are ACL-gated.
  */
 #[Route(defaults: ['_routeScope' => ['api']])]
 final class XrechnungController
 {
     public function __construct(
         private readonly EntityRepository $xrechnungInvoiceRepository,
+        private readonly GenerationOrchestrator $orchestrator,
     ) {
     }
 
@@ -66,5 +75,47 @@ final class XrechnungController
         $response->headers->set('Content-Type', 'application/xml');
 
         return $response;
+    }
+
+    #[Route(
+        path: '/api/_action/xrechnung-kit/regenerate/{orderId}',
+        name: 'api.action.xrechnung-kit.regenerate',
+        defaults: [
+            '_acl' => ['xrechnung_kit_invoice:update'],
+        ],
+        methods: ['POST']
+    )]
+    public function regenerate(string $orderId, Context $context): JsonResponse
+    {
+        $source = $context->getSource();
+        $triggeredBy = $source instanceof AdminApiSource ? $source->getUserId() : null;
+
+        $invoiceId = $this->orchestrator->generateForOrder(
+            $orderId,
+            $context,
+            XrechnungInvoiceDefinition::TRIGGER_MANUAL,
+            $triggeredBy,
+        );
+
+        // Reload to surface the result back to the admin UI.
+        $invoice = $this->xrechnungInvoiceRepository->search(new Criteria([$invoiceId]), $context)->first();
+
+        if (!$invoice instanceof XrechnungInvoiceEntity) {
+            return new JsonResponse(
+                ['error' => 'Generation finished but the invoice row could not be reloaded.'],
+                500,
+            );
+        }
+
+        return new JsonResponse([
+            'id' => $invoice->getId(),
+            'status' => $invoice->getStatus(),
+            'errors' => $invoice->getErrors() ?? [],
+            'generatedPath' => $invoice->getGeneratedPath(),
+            'kositResult' => $invoice->getKositResult(),
+            'attemptCount' => $invoice->getAttemptCount(),
+            'triggeredVia' => $invoice->getTriggeredVia(),
+            'triggeredBy' => $invoice->getTriggeredBy(),
+        ]);
     }
 }

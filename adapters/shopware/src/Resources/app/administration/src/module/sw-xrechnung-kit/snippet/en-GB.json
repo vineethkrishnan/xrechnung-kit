@@ -8,13 +8,18 @@
             "tabTitle": "XRechnung",
             "statusCardTitle": "Status",
             "fileCardTitle": "Generated file",
+            "auditCardTitle": "Audit",
             "errorsCardTitle": "Validation errors",
             "field": {
                 "status": "Status",
                 "generatedAt": "Generated at",
                 "validatorVersion": "Validator version",
                 "kositResult": "KoSIT check",
-                "path": "Path"
+                "path": "Path",
+                "triggeredVia": "Triggered via",
+                "triggeredBy": "Triggered by",
+                "triggeredBySystem": "System",
+                "attemptCount": "Attempts"
             },
             "status": {
                 "pending": "Pending",
@@ -27,12 +32,42 @@
                 "fail": "Failed",
                 "skipped": "Skipped"
             },
+            "trigger": {
+                "order_state": "Order state",
+                "manual": "Manual",
+                "scheduled_retry": "Scheduled retry",
+                "api": "API"
+            },
             "action": {
-                "download": "Download XML"
+                "download": "Download XML",
+                "regenerate": "Regenerate"
             },
             "empty": {
                 "title": "No XRechnung yet",
                 "subline": "No XRechnung has been generated for this order yet."
+            },
+            "notification": {
+                "regenerateSuccess": "XRechnung has been regenerated.",
+                "regenerateError": "Regeneration failed."
+            }
+        },
+        "quarantine": {
+            "menuLabel": "XRechnung quarantine",
+            "title": "XRechnung quarantine",
+            "column": {
+                "orderNumber": "Order",
+                "status": "Status",
+                "attempts": "Attempts",
+                "kositResult": "KoSIT",
+                "triggeredVia": "Triggered via",
+                "generatedAt": "Generated at"
+            },
+            "action": {
+                "refresh": "Refresh"
+            },
+            "empty": {
+                "title": "No XRechnung in quarantine",
+                "subline": "All XRechnungen have been generated and validated successfully."
             }
         },
         "acl": {

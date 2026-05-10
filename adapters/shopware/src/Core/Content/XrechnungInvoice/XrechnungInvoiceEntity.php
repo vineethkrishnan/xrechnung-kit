@@ -32,6 +32,12 @@ class XrechnungInvoiceEntity extends Entity
 
     protected ?string $kositResult = null;
 
+    protected string $triggeredVia = 'order_state';
+
+    protected ?string $triggeredBy = null;
+
+    protected int $attemptCount = 1;
+
     protected ?OrderEntity $order = null;
 
     public function getOrderId(): string
@@ -126,6 +132,36 @@ class XrechnungInvoiceEntity extends Entity
     public function setKositResult(?string $kositResult): void
     {
         $this->kositResult = $kositResult;
+    }
+
+    public function getTriggeredVia(): string
+    {
+        return $this->triggeredVia;
+    }
+
+    public function setTriggeredVia(string $triggeredVia): void
+    {
+        $this->triggeredVia = $triggeredVia;
+    }
+
+    public function getTriggeredBy(): ?string
+    {
+        return $this->triggeredBy;
+    }
+
+    public function setTriggeredBy(?string $triggeredBy): void
+    {
+        $this->triggeredBy = $triggeredBy;
+    }
+
+    public function getAttemptCount(): int
+    {
+        return $this->attemptCount;
+    }
+
+    public function setAttemptCount(int $attemptCount): void
+    {
+        $this->attemptCount = $attemptCount;
     }
 
     public function getOrder(): ?OrderEntity
