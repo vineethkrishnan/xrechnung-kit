@@ -1,0 +1,102 @@
+name: Shopware adapter tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'adapters/shopware/**'
+      - 'core/src/**'
+      - '.github/workflows/shopware-tests.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'adapters/shopware/**'
+      - 'core/src/**'
+      - '.github/workflows/shopware-tests.yml'
+
+concurrency:
+  group: shopware-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    name: PHPUnit unit (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.2', '8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer
+          coverage: none
+
+      - name: Install adapter dependencies
+        working-directory: adapters/shopware
+        run: composer install --no-progress --prefer-dist --no-interaction
+
+      - name: Run unit tests
+        working-directory: adapters/shopware
+        run: vendor/bin/phpunit --testsuite Unit
+
+  integration:
+    name: PHPUnit integration (skipped without Shopware kernel)
+    runs-on: ubuntu-latest
+    needs: unit
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+          coverage: none
+
+      - name: Install adapter dependencies
+        working-directory: adapters/shopware
+        run: composer install --no-progress --prefer-dist --no-interaction
+
+      - name: Run integration tests
+        working-directory: adapters/shopware
+        run: vendor/bin/phpunit --testsuite Integration --display-skipped
+        continue-on-error: true
+
+      - name: Note about integration coverage
+        run: |
+          echo "Integration tests require a real Shopware kernel and database."
+          echo "The current job runs the suite which auto-skips itself when"
+          echo "the Shopware test framework is not in scope. Wire up a Shopware"
+          echo "container (shopware/development:latest) to upgrade these to"
+          echo "real-execution coverage."
+
+  cypress:
+    name: Cypress e2e (skipped without Shopware admin)
+    runs-on: ubuntu-latest
+    needs: unit
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Note about cypress coverage
+        run: |
+          echo "Cypress specs are in adapters/shopware/cypress/."
+          echo "They require a running Shopware admin reachable at"
+          echo "CYPRESS_BASE_URL with the plugin installed and activated."
+          echo "Wire up the runner with a docker-compose Shopware to enable"
+          echo "this job's actual execution."
