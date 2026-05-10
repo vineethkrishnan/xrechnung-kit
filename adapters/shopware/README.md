@@ -32,7 +32,11 @@ Full integration guide: [xrechnung-kit.vineethnk.in/frameworks/shopware](https:/
 
 ## Status
 
-Pre-alpha scaffold. Public API is stable, the order-to-MappingData mapper and order-state subscriber are deliberately left out so the package surface can settle before a real consumer drives content into it. Open an issue describing your Shopware use case and we will prioritise.
+Tier 1 + Tier 2 implemented (Phases A through D from the project plan): plugin config, custom field set, DAL entity, order-state generation, admin SPA tab with regenerate / download / send-to-PEPPOL, quarantine list, audit, scheduled retry, admin notifications, PEPPOL delivery via configurable webhook. Reference PHPUnit tests in `tests/` and Cypress e2e specs in `cypress/`. See the project [docs](https://xrechnung-kit.vineethnk.in/frameworks/shopware) for the full integration guide.
+
+## Shopware Store listing
+
+The plugin is not on the Shopware Store today; the canonical install is `composer require vineethkrishnan/xrechnung-kit-shopware` from Packagist. The full Store-publishing path (prerequisites, code-quality gates, packaging, assets, free vs paid licensing, submission and update workflow) is captured in [STORE.md](STORE.md), along with the [`tools/store/build-shopware-zip.sh`](../../tools/store/build-shopware-zip.sh) build script that produces a Store-ready zip with a production `vendor/` bundled.
 
 ## License
 
