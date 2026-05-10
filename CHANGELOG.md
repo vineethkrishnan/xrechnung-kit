@@ -6,6 +6,44 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 This file is maintained automatically by [release-please](https://github.com/googleapis/release-please) from Conventional Commits on `main`. Manual edits will be overwritten on the next release.
 
+## [2.1.0](https://github.com/vineethkrishnan/xrechnung-kit/compare/v2.0.0...v2.1.0) (2026-05-10)
+
+
+### Features
+
+* **adapters:** scaffold typo3, shopware, and wordpress integrations ([4431535](https://github.com/vineethkrishnan/xrechnung-kit/commit/4431535116335fd4d363cd9dbdc5ea07eacdc43a))
+* **ci:** auto-publish core to packagist via splitsh mirror ([e991c21](https://github.com/vineethkrishnan/xrechnung-kit/commit/e991c21f993332b3e15e67cdf722318a581ad44a))
+* **docs:** auto-generated phpdocumentor reference + node 24 actions ([8316f39](https://github.com/vineethkrishnan/xrechnung-kit/commit/8316f39c8447b22db3e116919ae3cc4662aaee0c))
+* **docs:** vitepress site with german-formal styling and silicon walkthrough ([6d9ddc3](https://github.com/vineethkrishnan/xrechnung-kit/commit/6d9ddc36a63fe3220f1f5e83eeb5a2784b112ffa))
+* **pdfa:** scaffold xrechnung-kit-pdfa package for hybrid invoices ([e778c87](https://github.com/vineethkrishnan/xrechnung-kit/commit/e778c8775bd0bf675d5caeeee67a5122faa11861))
+* scaffold contenido cms plugin and add extending guide ([02911c4](https://github.com/vineethkrishnan/xrechnung-kit/commit/02911c4acfeca82f9c7a5988aac6df0954035786))
+* **shopware:** phase 5 - peppol delivery (vendor-neutral webhook) ([1c5d074](https://github.com/vineethkrishnan/xrechnung-kit/commit/1c5d074d6e9b8026331bae7977523bd3e23282f0))
+* **shopware:** phase A - plugin config + DAL entity + custom fields ([d60f206](https://github.com/vineethkrishnan/xrechnung-kit/commit/d60f206903e1b6c4bc4ed3d313bd089204806217))
+* **shopware:** phase B - OrderToMappingData + state subscriber + persistence ([b30d9f2](https://github.com/vineethkrishnan/xrechnung-kit/commit/b30d9f241f6e0c6fada12e28655aa4ceedaff591))
+* **shopware:** phase C - admin tab on order detail with download ([60ae972](https://github.com/vineethkrishnan/xrechnung-kit/commit/60ae9722b6797aa97615e3cc4f58ccc2e1537d30))
+* **shopware:** phase D - retry, quarantine, audit, scheduled task, notification channel ([0df415f](https://github.com/vineethkrishnan/xrechnung-kit/commit/0df415f95854b609124ff9d2e3f360bedb1db188))
+
+
+### Bug Fixes
+
+* **ci:** authenticate mirror push with PAT username, not x-access-token ([2235f49](https://github.com/vineethkrishnan/xrechnung-kit/commit/2235f49916fe96caed526e3596c91434cff2743a))
+* **ci:** disable persist-credentials so PAT-embedded mirror push wins ([ca48e23](https://github.com/vineethkrishnan/xrechnung-kit/commit/ca48e2378f43e6b5a92548b76c98efe51603f7e6))
+* **ci:** drop nonexistent tests/Unit dir from phpunit.xml.dist ([b55c519](https://github.com/vineethkrishnan/xrechnung-kit/commit/b55c519417bea90e52cfec715d04e3ca98262c8f))
+* **ci:** drop php 8.1 from shopware matrix, allow shopware composer plugins ([d35a723](https://github.com/vineethkrishnan/xrechnung-kit/commit/d35a7234de0b4bf8a4b159714775849ec7163990))
+* **ci:** drop splitsh state cache, it broke runs after the first ([2128e20](https://github.com/vineethkrishnan/xrechnung-kit/commit/2128e20f6f499ba2fbf2767f6f16bc09fc5cc983))
+* **ci:** refresh package-lock.json with cypress 13.17.0 ([4742593](https://github.com/vineethkrishnan/xrechnung-kit/commit/4742593ef78b59b9ba73a3e229a7c83998695e15))
+* **shopware:** retro-review fixes for phases A and B ([83d87b6](https://github.com/vineethkrishnan/xrechnung-kit/commit/83d87b6b2252a7025afe162de3da6acdad514a20))
+
+
+### Documentation
+
+* **core:** add standalone README for the packagist mirror ([129151f](https://github.com/vineethkrishnan/xrechnung-kit/commit/129151f9602d573c181f46748ddd27a4d3bcf6b7))
+* cross-link the generated API reference from the high-traffic pages ([d43b684](https://github.com/vineethkrishnan/xrechnung-kit/commit/d43b684536012fd1ac13c84f5d6bed4dd0a3d531))
+* drop pre-alpha framing now that v2.0.0 is on packagist ([3e64ad9](https://github.com/vineethkrishnan/xrechnung-kit/commit/3e64ad9afa641d1950a9a37aae47addc38a6545a))
+* **readme:** trim documentation line to a single sentence ([d418ba3](https://github.com/vineethkrishnan/xrechnung-kit/commit/d418ba3a85da62ebcf68d7d9d9e79e6283badd26))
+* **shopware:** document the future Shopware Store publishing path ([b6f75da](https://github.com/vineethkrishnan/xrechnung-kit/commit/b6f75daae7a1c2ac125bfa39e5f0225fb36a64ce))
+* split framework adapters from platform integrations across nav and readmes ([8597930](https://github.com/vineethkrishnan/xrechnung-kit/commit/85979305a428622173ab10fe9198fab8aaa7baef))
+
 ## [2.0.0](https://github.com/vineethkrishnan/xrechnung-kit/compare/v1.0.0...v2.0.0) (2026-05-09)
 
 
