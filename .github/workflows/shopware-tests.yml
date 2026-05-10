@@ -6,13 +6,18 @@ on:
     paths:
       - 'adapters/shopware/**'
       - 'core/src/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/shopware-tests.yml'
   pull_request:
     branches: [main]
     paths:
       - 'adapters/shopware/**'
       - 'core/src/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/shopware-tests.yml'
+  workflow_dispatch:
 
 concurrency:
   group: shopware-tests-${{ github.ref }}
