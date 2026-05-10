@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 This file is maintained automatically by [release-please](https://github.com/googleapis/release-please) from Conventional Commits on `main`. Manual edits will be overwritten on the next release.
 
+## [2.1.1](https://github.com/vineethkrishnan/xrechnung-kit/compare/v2.1.0...v2.1.1) (2026-05-10)
+
+
+### Bug Fixes
+
+* **ci:** make split-and-publish work on tag-push triggers ([5043faa](https://github.com/vineethkrishnan/xrechnung-kit/commit/5043faa4c9389409f59af801f81c00811c0a3f62))
+
 ## [2.1.0](https://github.com/vineethkrishnan/xrechnung-kit/compare/v2.0.0...v2.1.0) (2026-05-10)
 
 
