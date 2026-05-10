@@ -18,6 +18,10 @@ pnpm-lock.yaml
 /docs-site/.vitepress/dist/
 /docs-site/.vitepress/cache/
 
+# phpDocumentor generated output and cache
+/docs-site/public/api/
+/.phpdoc-cache/
+
 # PHP tooling
 .phpunit.result.cache
 .phpunit.cache/

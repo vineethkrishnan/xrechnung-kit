@@ -76,7 +76,8 @@ export default defineConfig({
       {
         text: 'Reference',
         items: [
-          { text: 'API reference', link: '/reference/api' },
+          { text: 'API overview', link: '/reference/api' },
+          { text: 'Generated API reference', link: '/api/', target: '_blank' },
           { text: 'Glossary (DE)', link: '/glossary-de' },
           { text: 'Document type codes', link: '/reference/document-types' },
           { text: 'Versioning policies', link: '/policies' },
@@ -121,7 +122,8 @@ export default defineConfig({
         {
           text: 'Reference',
           items: [
-            { text: 'API reference', link: '/reference/api' },
+            { text: 'API overview', link: '/reference/api' },
+            { text: 'Generated API reference', link: '/api/', target: '_blank' },
             { text: 'Document type codes', link: '/reference/document-types' },
             { text: 'Glossary (DE)', link: '/glossary-de' },
             { text: 'Versioning policies', link: '/policies' },

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+  configVersion="3"
+  xmlns="https://www.phpdoc.org"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+  <title>xrechnung-kit API reference</title>
+
+  <paths>
+    <output>docs-site/public/api</output>
+    <cache>.phpdoc-cache</cache>
+  </paths>
+
+  <version number="2.0.0">
+    <api>
+      <source dsn=".">
+        <path>core/src/**/*.php</path>
+      </source>
+      <output>.</output>
+      <ignore>
+        <path>core/src/Internal/**</path>
+        <path>core/src/Generator/Internal/**</path>
+      </ignore>
+      <ignore-tags>
+        <ignore-tag>internal</ignore-tag>
+      </ignore-tags>
+      <visibility>public</visibility>
+      <visibility>protected</visibility>
+      <default-package-name>XrechnungKit</default-package-name>
+      <markers>
+        <marker>TODO</marker>
+        <marker>FIXME</marker>
+      </markers>
+    </api>
+  </version>
+
+  <setting name="guides.enabled" value="false" />
+
+  <template name="default" />
+</phpdocumentor>

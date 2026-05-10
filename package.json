@@ -8,6 +8,7 @@
     "docs:dev": "vitepress dev docs-site",
     "docs:build": "vitepress build docs-site",
     "docs:preview": "vitepress preview docs-site",
+    "docs:api": "bash tools/docs/phpdoc.sh",
     "screenshots:cli": "bash tools/screenshots/silicon-capture.sh",
     "screenshots:ui": "playwright test --config tools/screenshots/playwright.config.ts"
   },

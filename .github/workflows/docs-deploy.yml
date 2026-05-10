@@ -7,6 +7,18 @@ on:
     branches: [main]
     paths:
       - 'docs-site/**'
+      - 'core/src/**'
+      - 'phpdoc.dist.xml'
+      - 'tools/docs/**'
+      - 'tools/screenshots/**'
+      - 'package.json'
+      - 'package-lock.json'
+
+env:
+  # Force pre-Node24 javascript actions onto Node 24 to silence the Node 20
+  # deprecation warning on cloudflare/wrangler-action@v3 until the action
+  # ships a Node 24 release of its own.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   deploy:
@@ -18,12 +30,22 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: none
+          coverage: none
+
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
+
+      - name: Generate PHP API reference
+        run: bash tools/docs/phpdoc.sh
 
       - name: Build VitePress
         run: npx vitepress build docs-site
