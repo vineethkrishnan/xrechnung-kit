@@ -15,7 +15,6 @@
          displayDetailsOnTestsThatTriggerDeprecations="true">
     <testsuites>
         <testsuite name="Unit">
-            <directory>tests/Unit</directory>
             <directory>tests/Service</directory>
             <directory>tests/Peppol</directory>
         </testsuite>
