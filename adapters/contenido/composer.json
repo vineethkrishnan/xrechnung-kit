@@ -1,0 +1,44 @@
+{
+    "name": "vineethkrishnan/xrechnung-kit-contenido",
+    "description": "Contenido CMS plugin for xrechnung-kit. Generates KoSIT-strict XRechnung 3.0 invoices from Contenido content and order modules.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["xrechnung", "en16931", "e-invoicing", "contenido", "contenido-cms", "germany"],
+    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "support": {
+        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
+        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "docs": "https://xrechnung-kit.vineethnk.in/frameworks/contenido"
+    },
+    "authors": [
+        { "name": "Vineeth N K", "email": "me@vineethnk.in", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": "^8.1",
+        "psr/log": "^1.0 || ^2.0 || ^3.0",
+        "vineethkrishnan/xrechnung-kit-core": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vineethkrishnan\\XrechnungKitContenido\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vineethkrishnan\\XrechnungKitContenido\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

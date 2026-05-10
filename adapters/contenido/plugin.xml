@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://contenido.org/plugin"
+        active="1"
+        name="xrechnung_kit"
+        uuid="urn:vineethkrishnan:contenido:xrechnung-kit"
+        version="0.1.0">
+
+    <author>Vineeth N K</author>
+    <copyright>Copyright (c) Vineeth N K and contributors</copyright>
+    <mail>me@vineethnk.in</mail>
+    <website>https://xrechnung-kit.vineethnk.in/</website>
+
+    <description lang="en">Generate KoSIT-strict valid XRechnung 3.0 invoices from Contenido content and order modules. Wraps vineethkrishnan/xrechnung-kit-core.</description>
+    <description lang="de">Erzeugt KoSIT-konforme XRechnung 3.0 Rechnungen aus Contenido-Inhalten und Bestellmodulen. Hülle für vineethkrishnan/xrechnung-kit-core.</description>
+
+    <requirements>
+        <php_version>8.1</php_version>
+        <contenido_version>4.10</contenido_version>
+    </requirements>
+
+    <attributes>
+        <attribute name="extends">cms</attribute>
+    </attributes>
+</plugin>

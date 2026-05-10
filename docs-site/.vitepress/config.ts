@@ -74,7 +74,12 @@ export default defineConfig({
           { text: 'TYPO3', link: '/frameworks/typo3' },
           { text: 'Shopware 6', link: '/frameworks/shopware' },
           { text: 'WordPress', link: '/frameworks/wordpress' },
+          { text: 'Contenido CMS', link: '/frameworks/contenido' },
         ],
+      },
+      {
+        text: 'Extending',
+        link: '/extending',
       },
       {
         text: 'Reference',
@@ -123,6 +128,13 @@ export default defineConfig({
             { text: 'TYPO3', link: '/frameworks/typo3' },
             { text: 'Shopware 6', link: '/frameworks/shopware' },
             { text: 'WordPress', link: '/frameworks/wordpress' },
+            { text: 'Contenido CMS', link: '/frameworks/contenido' },
+          ],
+        },
+        {
+          text: 'Extending',
+          items: [
+            { text: 'Extending xrechnung-kit', link: '/extending' },
           ],
         },
         {
