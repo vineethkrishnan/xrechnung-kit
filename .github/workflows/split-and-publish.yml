@@ -29,6 +29,18 @@ jobs:
           fetch-tags: true
           persist-credentials: false
 
+      - name: Ensure refs/heads/main exists locally
+        # When this workflow is triggered by a tag push (v*.*.*), the
+        # checkout is at the tag, not at main, and refs/heads/main may
+        # only exist as refs/remotes/origin/main. Splitsh-lite reads
+        # refs/heads/main directly, so create it from origin/main if
+        # missing. No-op when triggered by a push to main.
+        run: |
+          set -euo pipefail
+          if ! git rev-parse --verify refs/heads/main >/dev/null 2>&1; then
+            git fetch origin main:refs/heads/main
+          fi
+
       - name: Cache splitsh-lite binary
         id: cache-splitsh-bin
         uses: actions/cache@v5
