@@ -87,7 +87,7 @@ xrechnung-kit aims to fill the remaining gap: KoSIT-strict valid XRechnung 3.0 f
 
 ## Documentation
 
-Full documentation is hosted at **[xrechnung-kit.vineethnk.in](https://xrechnung-kit.vineethnk.in/)** (also reachable at [xrechnung-kit.pages.dev](https://xrechnung-kit.pages.dev/)). Source lives under `docs-site/` and auto-deploys to Cloudflare Pages on every push to `main`.
+Full documentation is available at [xrechnung-kit.vineethnk.in](https://xrechnung-kit.vineethnk.in/).
 
 - [Getting started](https://xrechnung-kit.vineethnk.in/getting-started)
 - [Walkthrough](https://xrechnung-kit.vineethnk.in/walkthrough/) (step-by-step from `composer require` to a valid XML)
