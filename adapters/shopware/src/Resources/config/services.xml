@@ -20,10 +20,32 @@
             <argument type="service" id="custom_field_set.repository"/>
         </service>
 
+        <!-- Typed plugin config wrapper -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
         <!-- Plugin orchestrator -->
         <service id="Vineethkrishnan\XrechnungKitShopware\Service\XrechnungService" public="true">
             <argument type="service" id="XrechnungKit\XRechnungValidator"/>
             <argument type="service" id="logger"/>
+        </service>
+
+        <!-- Order to MappingData mapper -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Service\OrderToMappingData" public="true">
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
+        </service>
+
+        <!-- Order state subscriber that triggers generation -->
+        <service id="Vineethkrishnan\XrechnungKitShopware\Subscriber\OrderStateChangedSubscriber">
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\OrderToMappingData"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\XrechnungService"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="xrechnung_kit_invoice.repository"/>
+            <argument type="service" id="Vineethkrishnan\XrechnungKitShopware\Service\PluginConfig"/>
+            <argument type="service" id="logger"/>
+            <argument>%kernel.project_dir%</argument>
+            <tag name="kernel.event_subscriber"/>
         </service>
     </services>
 </container>

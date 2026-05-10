@@ -59,6 +59,35 @@
     </card>
 
     <card>
+        <title>Seller bank account</title>
+        <title lang="de-DE">Verkaeufer Bankverbindung</title>
+
+        <input-field type="text">
+            <name>sellerIban</name>
+            <label>IBAN</label>
+            <label lang="de-DE">IBAN</label>
+            <placeholder>DE12500105170648489890</placeholder>
+            <helpText>Required for SEPA credit transfer payment means. Leave blank to omit payment means from generated invoices.</helpText>
+            <helpText lang="de-DE">Erforderlich fuer SEPA-Ueberweisung als Zahlungsmittel. Leer lassen, um Zahlungsmittel aus erzeugten Rechnungen wegzulassen.</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerBic</name>
+            <label>BIC</label>
+            <label lang="de-DE">BIC</label>
+            <placeholder>INGDDEFFXXX</placeholder>
+        </input-field>
+
+        <input-field type="text">
+            <name>sellerAccountName</name>
+            <label>Account holder name</label>
+            <label lang="de-DE">Kontoinhaber</label>
+            <helpText>Defaults to the seller legal name when blank.</helpText>
+            <helpText lang="de-DE">Faellt auf den Verkaeufer-Firmennamen zurueck, wenn leer.</helpText>
+        </input-field>
+    </card>
+
+    <card>
         <title>Buyer reference handling</title>
         <title lang="de-DE">Kaeuferreferenz</title>
 
