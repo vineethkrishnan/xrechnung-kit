@@ -71,6 +71,9 @@ export default defineConfig({
           { text: 'Symfony', link: '/frameworks/symfony' },
           { text: 'CakePHP', link: '/frameworks/cakephp' },
           { text: 'Laminas', link: '/frameworks/laminas' },
+          { text: 'TYPO3', link: '/frameworks/typo3' },
+          { text: 'Shopware 6', link: '/frameworks/shopware' },
+          { text: 'WordPress', link: '/frameworks/wordpress' },
         ],
       },
       {
@@ -117,6 +120,9 @@ export default defineConfig({
             { text: 'Symfony', link: '/frameworks/symfony' },
             { text: 'CakePHP', link: '/frameworks/cakephp' },
             { text: 'Laminas', link: '/frameworks/laminas' },
+            { text: 'TYPO3', link: '/frameworks/typo3' },
+            { text: 'Shopware 6', link: '/frameworks/shopware' },
+            { text: 'WordPress', link: '/frameworks/wordpress' },
           ],
         },
         {

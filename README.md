@@ -40,6 +40,14 @@ composer require vineethkrishnan/xrechnung-kit-cakephp
 composer require vineethkrishnan/xrechnung-kit-laminas
 ```
 
+CMS plugins:
+
+```bash
+composer require vineethkrishnan/xrechnung-kit-typo3
+composer require vineethkrishnan/xrechnung-kit-shopware
+composer require vineethkrishnan/xrechnung-kit-wordpress
+```
+
 ## Quick start
 
 ```php
@@ -85,6 +93,7 @@ Full documentation is hosted at **[xrechnung-kit.vineethnk.in](https://xrechnung
 - [MappingData: the canonical contract](https://xrechnung-kit.vineethnk.in/mapping-data)
 - [KoSIT Schematron validation](https://xrechnung-kit.vineethnk.in/kosit-validation)
 - Framework adapters: [Laravel](https://xrechnung-kit.vineethnk.in/frameworks/laravel), [Symfony](https://xrechnung-kit.vineethnk.in/frameworks/symfony), [CakePHP](https://xrechnung-kit.vineethnk.in/frameworks/cakephp), [Laminas](https://xrechnung-kit.vineethnk.in/frameworks/laminas)
+- CMS plugins: [TYPO3](https://xrechnung-kit.vineethnk.in/frameworks/typo3), [Shopware 6](https://xrechnung-kit.vineethnk.in/frameworks/shopware), [WordPress / WooCommerce](https://xrechnung-kit.vineethnk.in/frameworks/wordpress)
 - [API overview](https://xrechnung-kit.vineethnk.in/reference/api) and [generated API reference](https://xrechnung-kit.vineethnk.in/api/)
 - [Document type codes](https://xrechnung-kit.vineethnk.in/reference/document-types)
 - [Glossary of German XRechnung terms](https://xrechnung-kit.vineethnk.in/glossary-de)
