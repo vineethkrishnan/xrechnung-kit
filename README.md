@@ -3,7 +3,7 @@
 > EN 16931 / XRechnung 3.0 compliant e-invoice generator and validator for PHP. Framework-agnostic core with first-class adapters for Laravel, Symfony, CakePHP, and Laminas.
 
 [![Packagist](https://img.shields.io/packagist/v/vinelabs-de/xrechnung-kit.svg)](https://packagist.org/packages/vinelabs-de/xrechnung-kit)
-[![Tests](https://github.com/vinelabs-de/xrechnung-kit/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/vinelabs-de/xrechnung-kit/actions/workflows/test.yml)
+[![Tests](https://github.com/vineethkrishnan/xrechnung-kit/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/vineethkrishnan/xrechnung-kit/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-8892bf.svg)](https://www.php.net/supported-versions)
 
