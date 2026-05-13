@@ -3,7 +3,7 @@
 The TYPO3 extension wraps the framework-agnostic core in a TYPO3-aware service that you can inject anywhere TYPO3's Symfony DI reaches: extbase controllers, scheduler tasks, hooks, middleware.
 
 ::: tip Status
-Scaffold. The package is installable, the public surface is settled, and the integration code (admin module, scheduler task, fluid templating helpers) will land as real consumers drive content into it. If you have a near-term TYPO3 use case for XRechnung, [open an issue](https://github.com/vineethkrishnan/xrechnung-kit/issues) describing the integration shape you need.
+Scaffold. The package is installable, the public surface is settled, and the integration code (admin module, scheduler task, fluid templating helpers) will land as real consumers drive content into it. If you have a near-term TYPO3 use case for XRechnung, [open an issue](https://github.com/vinelabs-de/xrechnung-kit/issues) describing the integration shape you need.
 :::
 
 ## Install

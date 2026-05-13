@@ -3,7 +3,7 @@
 The Shopware 6 plugin wraps the framework-agnostic core as a typed service inside Shopware's Symfony container. Inject it into controllers, subscribers, and order workflow event handlers.
 
 ::: tip Status
-Scaffold. The package is installable, the public surface is settled, and the integration code (order-to-MappingData mapper, order-state subscriber, admin module) will land as real consumers drive content into it. If you have a near-term Shopware 6 use case for XRechnung, [open an issue](https://github.com/vineethkrishnan/xrechnung-kit/issues) describing the integration shape you need.
+Scaffold. The package is installable, the public surface is settled, and the integration code (order-to-MappingData mapper, order-state subscriber, admin module) will land as real consumers drive content into it. If you have a near-term Shopware 6 use case for XRechnung, [open an issue](https://github.com/vinelabs-de/xrechnung-kit/issues) describing the integration shape you need.
 :::
 
 ## Install

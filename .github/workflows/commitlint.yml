@@ -22,4 +22,4 @@ jobs:
         with:
           configFile: commitlint.config.mjs
           failOnWarnings: false
-          helpURL: https://github.com/vineethkrishnan/xrechnung-kit/blob/main/CONTRIBUTING.md#commit-convention
+          helpURL: https://github.com/vinelabs-de/xrechnung-kit/blob/main/CONTRIBUTING.md#commit-convention

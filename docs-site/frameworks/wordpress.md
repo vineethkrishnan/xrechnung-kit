@@ -3,7 +3,7 @@
 The WordPress plugin generates KoSIT-strict valid XRechnung 3.0 invoices from WordPress and WooCommerce orders. The plugin handles the WordPress-side wiring; the framework-agnostic core handles the actual generation, in-memory XSD validation, atomic writing, and (optionally) KoSIT Schematron validation.
 
 ::: tip Status
-Scaffold. The package is installable on Composer-managed WordPress sites, bootstraps cleanly, and exposes the public class surface. The WooCommerce order-to-MappingData mapper, the admin settings page, and the scheduled queue handler are deliberately left out so the package shape can settle before a real consumer drives content into it. If you have a near-term WordPress / WooCommerce use case for XRechnung, [open an issue](https://github.com/vineethkrishnan/xrechnung-kit/issues) describing the integration shape you need.
+Scaffold. The package is installable on Composer-managed WordPress sites, bootstraps cleanly, and exposes the public class surface. The WooCommerce order-to-MappingData mapper, the admin settings page, and the scheduled queue handler are deliberately left out so the package shape can settle before a real consumer drives content into it. If you have a near-term WordPress / WooCommerce use case for XRechnung, [open an issue](https://github.com/vinelabs-de/xrechnung-kit/issues) describing the integration shape you need.
 :::
 
 ## Install

@@ -19,7 +19,7 @@ hero:
       link: /walkthrough/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/vineethkrishnan/xrechnung-kit
+      link: https://github.com/vinelabs-de/xrechnung-kit
 
 features:
   - title: KoSIT-strict valid output

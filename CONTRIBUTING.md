@@ -27,7 +27,7 @@ Sub-packages publish to Packagist independently under the `vineethkrishnan/xrech
 ## Local development
 
 ```bash
-git clone https://github.com/vineethkrishnan/xrechnung-kit.git
+git clone https://github.com/vinelabs-de/xrechnung-kit.git
 cd xrechnung-kit
 composer install
 composer test
@@ -119,7 +119,7 @@ KoSIT scenarios pinning policy:
 
 ## Asking questions
 
-For general questions, open a [GitHub Discussion](https://github.com/vineethkrishnan/xrechnung-kit/discussions). Bug reports go in Issues using the templates.
+For general questions, open a [GitHub Discussion](https://github.com/vinelabs-de/xrechnung-kit/discussions). Bug reports go in Issues using the templates.
 
 ## License
 

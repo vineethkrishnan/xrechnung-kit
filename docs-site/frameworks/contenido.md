@@ -3,7 +3,7 @@
 The Contenido plugin wraps the framework-agnostic core for use inside Contenido CMS sites. Contenido does not ship a Symfony-style DI container, so the package is a plain PHP service class you instantiate where you need it - typically inside a custom Contenido module's output PHP or a backend plugin entry point.
 
 ::: tip Status
-Scaffold. The package is installable, the public surface is settled, and the integration code (Contenido module wrappers, backend CMS integration, scheduler hooks) will land as real consumers drive content into it. If you have a near-term Contenido use case for XRechnung, [open an issue](https://github.com/vineethkrishnan/xrechnung-kit/issues) describing the integration shape you need.
+Scaffold. The package is installable, the public surface is settled, and the integration code (Contenido module wrappers, backend CMS integration, scheduler hooks) will land as real consumers drive content into it. If you have a near-term Contenido use case for XRechnung, [open an issue](https://github.com/vinelabs-de/xrechnung-kit/issues) describing the integration shape you need.
 :::
 
 ## Install

@@ -4,10 +4,10 @@
     "type": "library",
     "license": "MIT",
     "keywords": ["xrechnung", "en16931", "e-invoicing", "contenido", "contenido-cms", "germany"],
-    "homepage": "https://github.com/vineethkrishnan/xrechnung-kit",
+    "homepage": "https://github.com/vinelabs-de/xrechnung-kit",
     "support": {
-        "issues": "https://github.com/vineethkrishnan/xrechnung-kit/issues",
-        "source": "https://github.com/vineethkrishnan/xrechnung-kit",
+        "issues": "https://github.com/vinelabs-de/xrechnung-kit/issues",
+        "source": "https://github.com/vinelabs-de/xrechnung-kit",
         "docs": "https://xrechnung-kit.vineethnk.in/frameworks/contenido"
     },
     "authors": [

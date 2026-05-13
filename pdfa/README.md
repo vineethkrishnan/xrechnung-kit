@@ -1,6 +1,6 @@
 # xrechnung-kit-pdfa
 
-PDF/A-3 hybrid invoice support for [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit). Embeds an XRechnung 3.0 XML inside a PDF/A-3 visual representation - the result is a single file usable both by humans (open in any PDF reader) and by KoSIT-strict validators (the embedded XML is the canonical truth).
+PDF/A-3 hybrid invoice support for [xrechnung-kit](https://github.com/vinelabs-de/xrechnung-kit). Embeds an XRechnung 3.0 XML inside a PDF/A-3 visual representation - the result is a single file usable both by humans (open in any PDF reader) and by KoSIT-strict validators (the embedded XML is the canonical truth).
 
 This is the source under `pdfa/` of the monorepo, published to Packagist as a standalone package via the auto-publish workflow.
 
@@ -48,4 +48,4 @@ Pre-alpha scaffold. The interfaces and value objects are settled and tested. The
 
 ## License
 
-MIT. See [LICENSE](https://github.com/vineethkrishnan/xrechnung-kit/blob/main/LICENSE).
+MIT. See [LICENSE](https://github.com/vinelabs-de/xrechnung-kit/blob/main/LICENSE).

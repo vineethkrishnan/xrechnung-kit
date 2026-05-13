@@ -64,7 +64,7 @@ Coupling rules:
 
 Reporters get an acknowledgement within 3 business days, a triage assessment within 7 days, and a fix or mitigation plan within 14 days for high-severity issues. The embargo period is up to 90 days from report to public disclosure.
 
-Full process in [SECURITY.md](https://github.com/vineethkrishnan/xrechnung-kit/blob/main/SECURITY.md).
+Full process in [SECURITY.md](https://github.com/vinelabs-de/xrechnung-kit/blob/main/SECURITY.md).
 
 ## Changelog
 

@@ -2,7 +2,7 @@
 
 Contenido CMS plugin that wraps [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit) for generating KoSIT-strict valid XRechnung 3.0 invoices from Contenido content and order modules.
 
-This is the source under `adapters/contenido/` of the [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit) monorepo. Published to Packagist as a standalone Contenido plugin via the auto-publish workflow.
+This is the source under `adapters/contenido/` of the [xrechnung-kit](https://github.com/vinelabs-de/xrechnung-kit) monorepo. Published to Packagist as a standalone Contenido plugin via the auto-publish workflow.
 
 ## Install
 
@@ -42,8 +42,8 @@ Full integration guide: [xrechnung-kit.vineethnk.in/frameworks/contenido](https:
 
 ## Status
 
-Pre-alpha scaffold. The package is installable, the public surface is settled, and the integration code (Contenido module wrappers, backend CMS integration, scheduler hooks) will land as real consumers drive content into it. If you have a near-term Contenido use case for XRechnung, [open an issue](https://github.com/vineethkrishnan/xrechnung-kit/issues) describing the integration shape you need.
+Pre-alpha scaffold. The package is installable, the public surface is settled, and the integration code (Contenido module wrappers, backend CMS integration, scheduler hooks) will land as real consumers drive content into it. If you have a near-term Contenido use case for XRechnung, [open an issue](https://github.com/vinelabs-de/xrechnung-kit/issues) describing the integration shape you need.
 
 ## License
 
-MIT. See [LICENSE](https://github.com/vineethkrishnan/xrechnung-kit/blob/main/LICENSE).
+MIT. See [LICENSE](https://github.com/vinelabs-de/xrechnung-kit/blob/main/LICENSE).

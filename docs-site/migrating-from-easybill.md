@@ -90,4 +90,4 @@ Once your fixture diff is empty (or only stylistic), remove `easybill/xrechnung-
 
 ## Help
 
-If you hit a migration blocker, open a [GitHub Discussion](https://github.com/vineethkrishnan/xrechnung-kit/discussions) with a small reproduction (Easybill input + intended XRechnung output).
+If you hit a migration blocker, open a [GitHub Discussion](https://github.com/vinelabs-de/xrechnung-kit/discussions) with a small reproduction (Easybill input + intended XRechnung output).

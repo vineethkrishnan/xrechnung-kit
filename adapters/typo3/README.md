@@ -2,7 +2,7 @@
 
 TYPO3 extension that wires [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit) into TYPO3's Symfony DI container, logging, and scheduler.
 
-This is the source under `adapters/typo3/` of the [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit) monorepo. It is published to Packagist as a standalone TYPO3 extension via the auto-publish workflow.
+This is the source under `adapters/typo3/` of the [xrechnung-kit](https://github.com/vinelabs-de/xrechnung-kit) monorepo. It is published to Packagist as a standalone TYPO3 extension via the auto-publish workflow.
 
 ## Install
 
@@ -30,4 +30,4 @@ Pre-alpha scaffold. Public API is stable, implementation will fill in as real co
 
 ## License
 
-MIT. See [LICENSE](https://github.com/vineethkrishnan/xrechnung-kit/blob/main/LICENSE).
+MIT. See [LICENSE](https://github.com/vinelabs-de/xrechnung-kit/blob/main/LICENSE).
