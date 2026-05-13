@@ -105,7 +105,7 @@ export default defineConfig({
         items: [
           { text: 'Changelog', link: 'https://github.com/vineethkrishnan/xrechnung-kit/blob/main/CHANGELOG.md' },
           { text: 'Upgrading 0.x to 1.0', link: '/upgrading/0.x-to-1.0' },
-          { text: 'On Packagist', link: 'https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core' },
+          { text: 'On Packagist', link: 'https://packagist.org/packages/vinelabs-de/xrechnung-kit' },
         ],
       },
     ],

@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "vineethkrishnan/xrechnung-kit-core": "^0.1 || ^1.0"
+        "vinelabs-de/xrechnung-kit": "^0.1 || ^1.0"
     },
     "suggest": {
         "vineethkrishnan/xrechnung-kit-kosit-bundle": "Required for the validate-kosit binary; ships the validator JAR and pinned scenarios."

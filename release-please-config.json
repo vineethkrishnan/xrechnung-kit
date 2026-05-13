@@ -10,7 +10,7 @@
   "separate-pull-requests": false,
   "packages": {
     ".": {
-      "package-name": "vineethkrishnan/xrechnung-kit-core",
+      "package-name": "vinelabs-de/xrechnung-kit",
       "changelog-path": "CHANGELOG.md",
       "changelog-sections": [
         { "type": "feat", "section": "Features" },

@@ -20,7 +20,7 @@ It writes a sample invoice to `examples/standalone/out/Demo-Invoice-001.xml` and
 ## Step 1: Install
 
 ```bash
-composer require vineethkrishnan/xrechnung-kit-core
+composer require vinelabs-de/xrechnung-kit
 ```
 
 Optional bundles (only when the corresponding feature is needed):
@@ -34,7 +34,7 @@ composer require --dev vineethkrishnan/xrechnung-kit-kosit-bundle
 composer require vineethkrishnan/xrechnung-kit-laravel
 ```
 
-`xrechnung-kit-core` has zero hard runtime dependencies beyond `ext-dom`, `ext-libxml`, and `ext-mbstring`. PSR-3 logging is opt-in.
+`vinelabs-de/xrechnung-kit` has zero hard runtime dependencies beyond `ext-dom`, `ext-libxml`, and `ext-mbstring`. PSR-3 logging is opt-in.
 
 ## Step 2: Build a typed `MappingData`
 

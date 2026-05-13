@@ -1,11 +1,11 @@
 ---
 title: API reference
-description: A curated reference to the public surface of `vineethkrishnan/xrechnung-kit-core`. Covers the mapping value objects, the builder, the generator, the validator, and the enums.
+description: A curated reference to the public surface of `vinelabs-de/xrechnung-kit`. Covers the mapping value objects, the builder, the generator, the validator, and the enums.
 ---
 
 # API overview
 
-This page is a hand-curated overview of the public types in `xrechnung-kit-core`. It is intentionally narrative: which types belong together, which constructors enforce what, where the Internal namespace begins.
+This page is a hand-curated overview of the public types in `vinelabs-de/xrechnung-kit`. It is intentionally narrative: which types belong together, which constructors enforce what, where the Internal namespace begins.
 
 For the per-class auto-generated reference produced by phpDocumentor, see [Generated API reference](/api/) - it is regenerated on every push to `main`. Anything under `XrechnungKit\Internal\` is implementation detail and is not covered by SemVer; everything else is part of the public contract.
 

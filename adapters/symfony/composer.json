@@ -20,7 +20,7 @@
         "symfony/http-kernel": "^6.0 || ^7.0",
         "symfony/messenger": "^6.0 || ^7.0",
         "psr/log": "^1.0 || ^2.0 || ^3.0",
-        "vineethkrishnan/xrechnung-kit-core": "^0.1 || ^1.0"
+        "vinelabs-de/xrechnung-kit": "^0.1 || ^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0",

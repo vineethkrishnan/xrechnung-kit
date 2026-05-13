@@ -1,6 +1,6 @@
 # xrechnung-kit-shopware
 
-Shopware 6 plugin that wires [`vineethkrishnan/xrechnung-kit-core`](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core) into Shopware's Symfony DI container, logging, and order workflow events.
+Shopware 6 plugin that wires [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit) into Shopware's Symfony DI container, logging, and order workflow events.
 
 This is the source under `adapters/shopware/` of the [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit) monorepo. It is published to Packagist as a standalone Shopware plugin via the auto-publish workflow.
 

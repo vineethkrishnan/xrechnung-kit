@@ -56,7 +56,7 @@ Each sub-package (`core`, `kosit-bundle`, `cli`, `adapters/*`, `mappers/*`) vers
 
 Coupling rules:
 
-- An adapter package's `require: vineethkrishnan/xrechnung-kit-core` constraint is `^X.Y` against the core version it was tested with.
+- An adapter package's `require: vinelabs-de/xrechnung-kit` constraint is `^X.Y` against the core version it was tested with.
 - A core MAJOR triggers a coordinated MAJOR across all adapters that consume it.
 - A core MINOR does not require an adapter bump unless the adapter intends to expose the new feature.
 

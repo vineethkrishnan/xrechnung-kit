@@ -11,7 +11,7 @@ Thanks for considering a contribution. This document covers how to propose chang
 ## Repository layout
 
 ```
-core/             # vineethkrishnan/xrechnung-kit-core
+core/             # vinelabs-de/xrechnung-kit
 adapters/{laravel,symfony,cakephp,laminas}/
 mappers/{bookings,simple}/
 kosit-bundle/

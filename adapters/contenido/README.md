@@ -1,6 +1,6 @@
 # xrechnung-kit-contenido
 
-Contenido CMS plugin that wraps [`vineethkrishnan/xrechnung-kit-core`](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core) for generating KoSIT-strict valid XRechnung 3.0 invoices from Contenido content and order modules.
+Contenido CMS plugin that wraps [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit) for generating KoSIT-strict valid XRechnung 3.0 invoices from Contenido content and order modules.
 
 This is the source under `adapters/contenido/` of the [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit) monorepo. Published to Packagist as a standalone Contenido plugin via the auto-publish workflow.
 

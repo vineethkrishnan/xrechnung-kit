@@ -16,7 +16,7 @@
         "friendsofphp/php-cs-fixer": "^3.59",
         "phpbench/phpbench": "^1.2",
         "roave/security-advisories": "dev-latest",
-        "vineethkrishnan/xrechnung-kit-core": "@dev",
+        "vinelabs-de/xrechnung-kit": "@dev",
         "vineethkrishnan/xrechnung-kit-cli": "@dev",
         "vineethkrishnan/xrechnung-kit-kosit-bundle": "@dev"
     },
@@ -27,7 +27,7 @@
             "options": {
                 "symlink": true,
                 "versions": {
-                    "vineethkrishnan/xrechnung-kit-core": "0.1.0"
+                    "vinelabs-de/xrechnung-kit": "0.1.0"
                 }
             }
         },

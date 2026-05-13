@@ -2,7 +2,7 @@
 
 > EN 16931 / XRechnung 3.0 compliant e-invoice generator and validator for PHP. Framework-agnostic core with first-class adapters for Laravel, Symfony, CakePHP, and Laminas.
 
-[![Packagist](https://img.shields.io/packagist/v/vineethkrishnan/xrechnung-kit-core.svg)](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core)
+[![Packagist](https://img.shields.io/packagist/v/vinelabs-de/xrechnung-kit.svg)](https://packagist.org/packages/vinelabs-de/xrechnung-kit)
 [![Tests](https://github.com/vineethkrishnan/xrechnung-kit/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/vineethkrishnan/xrechnung-kit/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D8.1-8892bf.svg)](https://www.php.net/supported-versions)
@@ -22,7 +22,7 @@ Document classes supported:
 ## Installation
 
 ```bash
-composer require vineethkrishnan/xrechnung-kit-core
+composer require vinelabs-de/xrechnung-kit
 ```
 
 Optional KoSIT Schematron validation:
@@ -130,7 +130,7 @@ Disclosure via GitHub private vulnerability reporting on this repository, or by 
 
 This monorepo holds the framework-agnostic core under `core/`, the optional KoSIT bundle under `kosit-bundle/`, framework adapters under `adapters/`, and shared mappers under `mappers/`. Each subtree carries its own `composer.json` so it can be published as a standalone Packagist package.
 
-`core/` is auto-mirrored to [`vineethkrishnan/xrechnung-kit-core`](https://github.com/vineethkrishnan/xrechnung-kit-core) on every push to `main` and on every `v*.*.*` tag, via `splitsh-lite` and the `.github/workflows/split-and-publish.yml` workflow. Packagist resolves `vineethkrishnan/xrechnung-kit-core` against that mirror. Do not open PRs against the mirror; all development happens here.
+`core/` is auto-mirrored to [`vinelabs-de/xrechnung-kit`](https://github.com/vinelabs-de/xrechnung-kit) on every push to `main` and on every `v*.*.*` tag, via `splitsh-lite` and the `.github/workflows/split-and-publish.yml` workflow. Packagist resolves `vinelabs-de/xrechnung-kit` against that mirror. Do not open PRs against the mirror; all development happens here.
 
 ## Contributing
 

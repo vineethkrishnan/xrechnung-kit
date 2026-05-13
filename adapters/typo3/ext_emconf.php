@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'xrechnung-kit',
-    'description' => 'EN 16931 / XRechnung 3.0 generation and validation for TYPO3. Wraps vineethkrishnan/xrechnung-kit-core with TYPO3 DI and scheduler integration.',
+    'description' => 'EN 16931 / XRechnung 3.0 generation and validation for TYPO3. Wraps vinelabs-de/xrechnung-kit with TYPO3 DI and scheduler integration.',
     'category' => 'plugin',
     'state' => 'alpha',
     'author' => 'Vineeth N K',

@@ -1,6 +1,6 @@
 # xrechnung-kit-wordpress
 
-WordPress plugin that generates KoSIT-strict valid XRechnung 3.0 / EN 16931 invoices from WordPress / WooCommerce orders. Wraps [`vineethkrishnan/xrechnung-kit-core`](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core).
+WordPress plugin that generates KoSIT-strict valid XRechnung 3.0 / EN 16931 invoices from WordPress / WooCommerce orders. Wraps [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit).
 
 This is the source under `adapters/wordpress/` of the [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit) monorepo. It is published to Packagist as a standalone WordPress plugin via the auto-publish workflow.
 

@@ -50,7 +50,7 @@ features:
 ## At a glance
 
 ```bash
-composer require vineethkrishnan/xrechnung-kit-core
+composer require vinelabs-de/xrechnung-kit
 ```
 
 ```php
@@ -72,6 +72,6 @@ See the full [walkthrough](/walkthrough/) for a step-by-step tour from `composer
 
 ## Status and compliance
 
-xrechnung-kit is published on Packagist as [`vineethkrishnan/xrechnung-kit-core`](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core). It targets the [XRechnung 3.0](https://xeinkauf.de/xrechnung/) standard and the underlying [EN 16931](https://standards.cen.eu/dyn/www/f?p=204:110:0::::FSP_PROJECT,FSP_LANG_ID:60602,25&cs=1B61B766636F9FB34B7DBD72CF9357F75) European norm. The bundled schemas are the official [OASIS UBL 2.4](http://docs.oasis-open.org/ubl/UBL-2.4.html) Invoice and CreditNote XSDs. Schematron validation is performed by the [official KoSIT validator](https://github.com/itplr-kosit/validator), wrapped by the optional `kosit-bundle` package and gated behind a Java 17+ requirement at validation time only.
+xrechnung-kit is published on Packagist as [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit). It targets the [XRechnung 3.0](https://xeinkauf.de/xrechnung/) standard and the underlying [EN 16931](https://standards.cen.eu/dyn/www/f?p=204:110:0::::FSP_PROJECT,FSP_LANG_ID:60602,25&cs=1B61B766636F9FB34B7DBD72CF9357F75) European norm. The bundled schemas are the official [OASIS UBL 2.4](http://docs.oasis-open.org/ubl/UBL-2.4.html) Invoice and CreditNote XSDs. Schematron validation is performed by the [official KoSIT validator](https://github.com/itplr-kosit/validator), wrapped by the optional `kosit-bundle` package and gated behind a Java 17+ requirement at validation time only.
 
 xrechnung-kit is an independent open source library, distributed under the MIT license. It is neither affiliated with nor endorsed by KoSIT, the Bundesregierung, or any German federal or state agency. The "XRechnung" name refers to the federal e-invoicing standard maintained by KoSIT (Koordinierungsstelle fuer IT-Standards). See [trademarks](/policies#trademarks) for full wording.

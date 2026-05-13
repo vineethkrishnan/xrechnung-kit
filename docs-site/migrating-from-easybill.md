@@ -30,7 +30,7 @@
 You can run both libraries in the same project during the transition. Different namespaces, different vendor.
 
 ```bash
-composer require vineethkrishnan/xrechnung-kit-core
+composer require vinelabs-de/xrechnung-kit
 ```
 
 ### Step 2: write a mapper from your existing Easybill input

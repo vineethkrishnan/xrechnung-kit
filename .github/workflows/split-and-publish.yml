@@ -18,8 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SPLITSH_VERSION: v1.0.1
-      MIRROR_OWNER: vineethkrishnan
-      MIRROR_REPO: xrechnung-kit-core
+      MIRROR_OWNER: vinelabs-de
+      MIRROR_REPO: xrechnung-kit
+      PAT_OWNER: vineethkrishnan
+      PACKAGIST_USERNAME: vineethkrishnan
       SUBTREE_PREFIX: core
     steps:
       - name: Checkout monorepo with full history and tags
@@ -95,7 +97,7 @@ jobs:
           MAIN_SHA: ${{ steps.split-main.outputs.sha }}
         run: |
           set -euo pipefail
-          MIRROR_URL="https://${MIRROR_OWNER}:${SPLIT_PUSH_TOKEN}@github.com/${MIRROR_OWNER}/${MIRROR_REPO}.git"
+          MIRROR_URL="https://${PAT_OWNER}:${SPLIT_PUSH_TOKEN}@github.com/${MIRROR_OWNER}/${MIRROR_REPO}.git"
           git push --force "${MIRROR_URL}" "${MAIN_SHA}:refs/heads/main"
           if [ -s /tmp/tag-pushes.txt ]; then
             while read -r SHA REF; do
@@ -110,5 +112,5 @@ jobs:
           set -euo pipefail
           curl -fsSL -XPOST \
             -H 'content-type:application/json' \
-            "https://packagist.org/api/update-package?username=${MIRROR_OWNER}&apiToken=${PACKAGIST_API_TOKEN}" \
+            "https://packagist.org/api/update-package?username=${PACKAGIST_USERNAME}&apiToken=${PACKAGIST_API_TOKEN}" \
             -d "{\"repository\":{\"url\":\"https://github.com/${MIRROR_OWNER}/${MIRROR_REPO}\"}}"

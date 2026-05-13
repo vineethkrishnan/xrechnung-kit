@@ -1,6 +1,6 @@
 # xrechnung-kit-typo3
 
-TYPO3 extension that wires [`vineethkrishnan/xrechnung-kit-core`](https://packagist.org/packages/vineethkrishnan/xrechnung-kit-core) into TYPO3's Symfony DI container, logging, and scheduler.
+TYPO3 extension that wires [`vinelabs-de/xrechnung-kit`](https://packagist.org/packages/vinelabs-de/xrechnung-kit) into TYPO3's Symfony DI container, logging, and scheduler.
 
 This is the source under `adapters/typo3/` of the [xrechnung-kit](https://github.com/vineethkrishnan/xrechnung-kit) monorepo. It is published to Packagist as a standalone TYPO3 extension via the auto-publish workflow.
 

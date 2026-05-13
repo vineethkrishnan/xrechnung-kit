@@ -5,7 +5,7 @@ This guide takes you from `composer require` to a KoSIT-strict valid XRechnung 3
 ## Install
 
 ```bash
-composer require vineethkrishnan/xrechnung-kit-core
+composer require vinelabs-de/xrechnung-kit
 ```
 
 Optional: KoSIT Schematron validation (Java 17+ at validation time):
