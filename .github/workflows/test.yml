@@ -38,7 +38,7 @@ jobs:
       # PHP versions pick the highest compatible PHPUnit (11.x for 8.2, 10.x
       # for 8.1) without dragging in versions they cannot run.
       - name: Install dependencies (matrix-resolved per PHP)
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
           composer-options: '--prefer-dist'
@@ -76,7 +76,7 @@ jobs:
       # not block the install. The lockfile is for local dev; CI runs always
       # update.
       - name: Install dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
           composer-options: '--prefer-dist'
@@ -122,7 +122,7 @@ jobs:
           java-version: '17'
 
       - name: Install dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
           composer-options: '--prefer-dist'
