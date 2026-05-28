@@ -14,12 +14,6 @@ on:
       - 'package.json'
       - 'package-lock.json'
 
-env:
-  # Force pre-Node24 javascript actions onto Node 24 to silence the Node 20
-  # deprecation warning on cloudflare/wrangler-action@v4 until the action
-  # ships a Node 24 release of its own.
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-
 jobs:
   deploy:
     name: Cloudflare Pages
