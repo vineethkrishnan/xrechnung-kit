@@ -30,7 +30,7 @@ describe('XRechnung tab on order detail', () => {
         })
     })
 
-    it('regenerate action calls POST /api/_action/xrechnung-kit/regenerate/{orderId}', () => {
+    it('regenerate action calls POST /api/_action/xrechnung-kit/regenerate/{orderId}', function () {
         cy.apiAdmin('POST', 'search/order', {
             limit: 1,
             includes: { order: ['id'] },
