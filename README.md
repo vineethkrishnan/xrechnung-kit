@@ -93,22 +93,22 @@ xrechnung-kit aims to fill the remaining gap: KoSIT-strict valid XRechnung 3.0 f
 
 ## Documentation
 
-Full documentation is available at [xrechnung-kit.vinelabs.de](https://xrechnung-kit.vinelabs.de/).
+Full documentation is available at [xrechnung-kit.vinelab.in](https://xrechnung-kit.vinelab.in/).
 
-- [Getting started](https://xrechnung-kit.vinelabs.de/getting-started)
-- [Walkthrough](https://xrechnung-kit.vinelabs.de/walkthrough/) (step-by-step from `composer require` to a valid XML)
-- [MappingData: the canonical contract](https://xrechnung-kit.vinelabs.de/mapping-data)
-- [KoSIT Schematron validation](https://xrechnung-kit.vinelabs.de/kosit-validation)
-- Framework adapters: [Laravel](https://xrechnung-kit.vinelabs.de/frameworks/laravel), [Symfony](https://xrechnung-kit.vinelabs.de/frameworks/symfony), [CakePHP](https://xrechnung-kit.vinelabs.de/frameworks/cakephp), [Laminas](https://xrechnung-kit.vinelabs.de/frameworks/laminas)
-- Platform integrations: [TYPO3](https://xrechnung-kit.vinelabs.de/frameworks/typo3), [Shopware 6](https://xrechnung-kit.vinelabs.de/frameworks/shopware), [WordPress / WooCommerce](https://xrechnung-kit.vinelabs.de/frameworks/wordpress), [Contenido CMS](https://xrechnung-kit.vinelabs.de/frameworks/contenido)
-- [Extending xrechnung-kit](https://xrechnung-kit.vinelabs.de/extending) - custom mappers, channels, loggers, validators
-- [PDF/A-3 hybrid invoices](https://xrechnung-kit.vinelabs.de/embedding-pdfa) - via the optional `xrechnung-kit-pdfa` package
-- [API overview](https://xrechnung-kit.vinelabs.de/reference/api) and [generated API reference](https://xrechnung-kit.vinelabs.de/api/)
-- [Document type codes](https://xrechnung-kit.vinelabs.de/reference/document-types)
-- [Glossary of German XRechnung terms](https://xrechnung-kit.vinelabs.de/glossary-de)
-- [Versioning and compatibility policies](https://xrechnung-kit.vinelabs.de/policies)
-- [Upgrading from 0.x to 1.0](https://xrechnung-kit.vinelabs.de/upgrading/0.x-to-1.0)
-- [Migrating from easybill/xrechnung-php](https://xrechnung-kit.vinelabs.de/migrating-from-easybill)
+- [Getting started](https://xrechnung-kit.vinelab.in/getting-started)
+- [Walkthrough](https://xrechnung-kit.vinelab.in/walkthrough/) (step-by-step from `composer require` to a valid XML)
+- [MappingData: the canonical contract](https://xrechnung-kit.vinelab.in/mapping-data)
+- [KoSIT Schematron validation](https://xrechnung-kit.vinelab.in/kosit-validation)
+- Framework adapters: [Laravel](https://xrechnung-kit.vinelab.in/frameworks/laravel), [Symfony](https://xrechnung-kit.vinelab.in/frameworks/symfony), [CakePHP](https://xrechnung-kit.vinelab.in/frameworks/cakephp), [Laminas](https://xrechnung-kit.vinelab.in/frameworks/laminas)
+- Platform integrations: [TYPO3](https://xrechnung-kit.vinelab.in/frameworks/typo3), [Shopware 6](https://xrechnung-kit.vinelab.in/frameworks/shopware), [WordPress / WooCommerce](https://xrechnung-kit.vinelab.in/frameworks/wordpress), [Contenido CMS](https://xrechnung-kit.vinelab.in/frameworks/contenido)
+- [Extending xrechnung-kit](https://xrechnung-kit.vinelab.in/extending) - custom mappers, channels, loggers, validators
+- [PDF/A-3 hybrid invoices](https://xrechnung-kit.vinelab.in/embedding-pdfa) - via the optional `xrechnung-kit-pdfa` package
+- [API overview](https://xrechnung-kit.vinelab.in/reference/api) and [generated API reference](https://xrechnung-kit.vinelab.in/api/)
+- [Document type codes](https://xrechnung-kit.vinelab.in/reference/document-types)
+- [Glossary of German XRechnung terms](https://xrechnung-kit.vinelab.in/glossary-de)
+- [Versioning and compatibility policies](https://xrechnung-kit.vinelab.in/policies)
+- [Upgrading from 0.x to 1.0](https://xrechnung-kit.vinelab.in/upgrading/0.x-to-1.0)
+- [Migrating from easybill/xrechnung-php](https://xrechnung-kit.vinelab.in/migrating-from-easybill)
 
 ## Versioning
 
